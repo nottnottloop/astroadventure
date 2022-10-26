@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.75, 758.875 )
+
+[node name="Death Plane" instance=ExtResource( 2 )]
+position = Vector2( 21, 139 )
+rotation = 1.5708
+scale = Vector2( 50, 50 )
+attack_damage = 100
+invincible = true
+
+[node name="Spike Wall" type="Node2D" parent="." index="0"]
+scale = Vector2( 0.134, 0.134 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Hitbox" index="0"]
+position = Vector2( -2.25, 786.125 )
+shape = SubResource( 1 )

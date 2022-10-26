@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/2DWeaponPack/Sprites/AK-47/ak-47.png" type="Texture" id=1]
+[ext_resource path="res://src/Objects/Gun.tscn" type="PackedScene" id=2]
+
+[node name="AK" instance=ExtResource( 2 )]
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 1 )

@@ -1,0 +1,169 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Objects/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Background/SpaceBackGround.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Plants/VioletTree_02.png" type="Texture" id=4]
+[ext_resource path="res://src/Objects/Rock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/Portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Actors/Enemies/Giant Spike Wall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/User Interface/Message.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/User Interface/Liberation Sans Smaller.tres" type="DynamicFont" id=9]
+[ext_resource path="res://src/Actors/Enemies/Death Plane.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Levels/Level 1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Objects/Platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Actors/Enemies/Floor Spike.tscn" type="PackedScene" id=13]
+
+[node name="Level" type="Node2D"]
+position = Vector2( -157, 228 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 4294, 1569 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 43, 48 )
+
+[node name="Camera2D" parent="Player" index="0"]
+zoom = Vector2( 1.12, 1.12 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+position = Vector2( 107, 116 )
+show_collision = false
+tile_data = PoolIntArray( -1441799, 0, 0, -1441798, 0, 0, -1441797, 0, 0, -1441796, 0, 0, -1441795, 0, 0, -1441794, 0, 0, -1441793, 0, 0, -1507328, 0, 0, -1507327, 0, 0, -1507326, 0, 0, -1507325, 0, 0, -1507324, 0, 0, -1507323, 0, 0, -1507322, 0, 0, -1507321, 0, 0, -1507320, 0, 0, -1507319, 0, 0, -1507318, 0, 0, -1507317, 0, 0, -1507316, 0, 0, -1507315, 0, 0, -1507314, 0, 0, -1507313, 0, 0, -1507312, 0, 0, -1507311, 0, 0, -1507310, 0, 0, -1507309, 0, 0, -1507308, 0, 0, -1507307, 0, 0, -1507306, 0, 0, -1507305, 0, 0, -1507304, 0, 0, -1507303, 0, 0, -1507302, 0, 0, -1507301, 0, 0, -1507300, 0, 0, -1507299, 0, 0, -1507298, 0, 0, -1507297, 0, 0, -1507296, 0, 0, -1507295, 0, 0, -1507294, 0, 0, -1507293, 0, 0, -1507292, 0, 0, -1507291, 0, 0, -1507290, 0, 0, -1507289, 0, 0, -1507288, 0, 0, -1507287, 0, 0, -1507286, 0, 0, -1507285, 0, 0, -1507284, 0, 0, -1507283, 0, 0, -1507282, 0, 0, -1507281, 0, 0, -1507280, 0, 0, -1507279, 0, 0, -1507278, 0, 0, -1507277, 0, 0, -1507276, 0, 0, -1507275, 0, 0, -1507274, 0, 0, -1507273, 0, 0, -1507272, 0, 0, -1507271, 0, 0, -1507270, 0, 0, -1507269, 0, 0, -1507268, 0, 0, -1507267, 0, 0, -1507266, 0, 0, -1507265, 0, 0, -1507264, 0, 0, -1507263, 0, 0, -1507262, 0, 0, -1507261, 0, 0, -1507260, 0, 0, -1507259, 0, 0, -1507258, 0, 0, -1507257, 0, 0, -1507256, 0, 0, -1507255, 0, 0, -1507254, 0, 0, -1507253, 0, 0, -1507252, 0, 0, -1507251, 0, 0, -1507250, 0, 0, -1507249, 0, 0, -1507248, 0, 0, -1507247, 0, 0, -1507246, 0, 0, -1507245, 0, 0, -1507244, 0, 0, -1507243, 0, 0, -1507242, 0, 0, -1507241, 0, 0, -1507240, 0, 0, -1507239, 0, 0, -1507238, 0, 0, -1507237, 0, 0, -1507236, 0, 0, -1507235, 0, 0, -1376263, 0, 0, -1441699, 0, 0, -1310727, 0, 0, -1376163, 0, 0, -1245191, 0, 0, -1310627, 0, 0, -1179655, 0, 0, -1245091, 0, 0, -1114119, 0, 0, -1179555, 0, 0, -1048583, 0, 0, -1114019, 0, 0, -983047, 0, 0, -1048483, 0, 0, -917511, 0, 0, -982947, 0, 0, -851975, 0, 0, -917411, 0, 0, -786439, 0, 0, -851875, 0, 0, -720903, 0, 0, -786339, 0, 0, -655375, 0, 0, -655374, 0, 0, -655373, 0, 0, -655372, 0, 0, -655371, 0, 0, -655370, 0, 0, -655369, 0, 0, -655368, 0, 0, -655367, 0, 0, -720803, 0, 0, -589840, 0, 0, -589839, 0, 0, -589838, 0, 0, -589837, 0, 0, -589836, 0, 0, -589835, 0, 0, -589834, 0, 0, -589833, 0, 0, -589832, 0, 0, -589831, 0, 0, -655267, 0, 0, -524304, 0, 0, -524303, 0, 0, -524302, 0, 0, -524301, 0, 0, -524300, 0, 0, -524299, 0, 0, -524298, 0, 0, -524297, 0, 0, -524296, 0, 0, -524295, 0, 0, -589731, 0, 0, -458768, 0, 0, -458767, 0, 0, -458766, 0, 0, -458765, 0, 0, -458764, 0, 0, -458763, 0, 0, -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -524195, 0, 0, -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 0, 0, -393228, 0, 0, -393227, 0, 0, -393226, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -458706, 0, 0, -458705, 0, 0, -458704, 0, 0, -458659, 0, 0, -327696, 0, 0, -327695, 0, 0, -327694, 0, 0, -327693, 0, 0, -327692, 0, 0, -327691, 0, 0, -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -393170, 0, 0, -393169, 0, 0, -393168, 0, 0, -393123, 0, 0, -262160, 0, 0, -262159, 0, 0, -262158, 0, 0, -262157, 0, 0, -262156, 0, 0, -262155, 0, 0, -262154, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -327634, 0, 0, -327633, 0, 0, -327632, 0, 0, -327587, 0, 0, -196624, 0, 0, -196623, 0, 0, -196622, 0, 0, -196621, 0, 0, -196620, 0, 0, -196619, 0, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -262098, 0, 0, -262097, 0, 0, -262096, 0, 0, -262051, 0, 0, -131088, 0, 0, -131087, 0, 0, -131086, 0, 0, -131085, 0, 0, -131084, 0, 0, -131083, 0, 0, -131082, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -196562, 0, 0, -196561, 0, 0, -196560, 0, 0, -196549, 0, 0, -196548, 1, 0, -196515, 0, 0, -65552, 0, 0, -65551, 0, 0, -65550, 0, 0, -65549, 0, 0, -65548, 0, 0, -65547, 0, 0, -65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -131026, 0, 0, -131025, 0, 0, -131024, 0, 0, -131013, 0, 0, -131012, 0, 0, -131011, 1, 0, -130979, 0, 0, -16, 0, 0, -15, 0, 0, -14, 0, 0, -13, 0, 0, -12, 0, 0, -11, 0, 0, -10, 0, 0, -9, 0, 0, -8, 0, 0, -7, 0, 0, -65501, 0, 0, -65500, 0, 0, -65499, 0, 0, -65498, 0, 0, -65497, 0, 0, -65496, 0, 0, -65495, 0, 0, -65494, 0, 0, -65493, 0, 0, -65492, 0, 0, -65491, 0, 0, -65490, 0, 0, -65489, 0, 0, -65488, 0, 0, -65477, 0, 0, -65476, 0, 0, -65475, 0, 0, -65474, 0, 0, -65473, 0, 0, -65472, 0, 0, -65471, 0, 0, -65470, 0, 0, -65469, 0, 0, -65468, 0, 0, -65467, 0, 0, -65466, 0, 0, -65465, 0, 0, -65464, 0, 0, -65463, 0, 0, -65462, 0, 0, -65450, 0, 0, -65449, 0, 0, -65448, 0, 0, -65447, 1, 0, -65443, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0, 41, 0, 0, 42, 0, 0, 43, 0, 0, 44, 0, 0, 45, 0, 0, 46, 0, 0, 47, 0, 0, 48, 0, 0, 49, 0, 0, 50, 0, 0, 51, 0, 0, 52, 0, 0, 53, 0, 0, 54, 0, 0, 55, 0, 0, 56, 0, 0, 57, 0, 0, 58, 0, 0, 59, 0, 0, 60, 0, 0, 61, 0, 0, 62, 0, 0, 63, 0, 0, 64, 0, 0, 65, 0, 0, 66, 0, 0, 67, 0, 0, 68, 0, 0, 69, 0, 0, 70, 0, 0, 71, 0, 0, 72, 0, 0, 73, 0, 0, 74, 0, 0, 75, 0, 0, 76, 0, 0, 77, 0, 0, 78, 0, 0, 79, 0, 0, 80, 0, 0, 81, 0, 0, 82, 0, 0, 83, 0, 0, 84, 0, 0, 85, 0, 0, 86, 0, 0, 87, 0, 0, 88, 0, 0, 89, 0, 0, 90, 0, 0, 91, 0, 0, 92, 0, 0, 93, 0, 0, 65571, 0, 0, 65572, 0, 0, 65573, 0, 0, 65574, 0, 0, 65575, 0, 0, 65576, 0, 0, 65577, 0, 0, 65578, 0, 0, 65579, 0, 0, 65580, 0, 0, 65581, 0, 0, 65582, 0, 0, 65583, 0, 0 )
+
+[node name="Portal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 11701, 44 )
+next_level = ExtResource( 11 )
+
+[node name="Message" parent="." instance=ExtResource( 8 )]
+
+[node name="Message Layer" parent="Message" index="0"]
+visible = false
+
+[node name="Title" parent="Message/Message Layer" index="1"]
+text = "Final Tutorial"
+
+[node name="Body" parent="Message/Message Layer" index="2"]
+custom_fonts/font = ExtResource( 9 )
+text = "The Spike wall is chasing you and will kill you instantly if you touch it!
+
+Quickly get to the end of the map to escape!"
+autowrap = true
+
+[node name="Rock" parent="." instance=ExtResource( 5 )]
+position = Vector2( -565, 77 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -76, 57 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+
+[node name="Giant Spike Wall" parent="." instance=ExtResource( 7 )]
+position = Vector2( -623, -2159 )
+
+[node name="Position2D" type="Position2D" parent="Giant Spike Wall/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Giant Spike Wall/Waypoints" index="1"]
+position = Vector2( 6145.5, 0 )
+
+[node name="Death Plane" parent="." instance=ExtResource( 10 )]
+position = Vector2( 19077, 2281 )
+
+[node name="Platform" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1184, 76 )
+
+[node name="Platform2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1864, -92 )
+
+[node name="Platform3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2544, -152 )
+
+[node name="Platform4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 3484, -156 )
+
+[node name="Platform5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 5672, -172 )
+
+[node name="Platform6" parent="." instance=ExtResource( 12 )]
+position = Vector2( 5360, -392 )
+
+[node name="Platform7" parent="." instance=ExtResource( 12 )]
+position = Vector2( 5688, -628 )
+
+[node name="Platform8" parent="." instance=ExtResource( 12 )]
+position = Vector2( 6864, -440 )
+
+[node name="Platform9" parent="." instance=ExtResource( 12 )]
+position = Vector2( 10200, -108 )
+
+[node name="Floor Spike" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6298, 104 )
+
+[node name="Floor Spike2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6422, 104 )
+
+[node name="Floor Spike3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6545, 103 )
+
+[node name="Floor Spike4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6673, 103 )
+
+[node name="Floor Spike5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6797, 103 )
+
+[node name="Floor Spike6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6922, 103 )
+
+[node name="Floor Spike7" parent="." instance=ExtResource( 13 )]
+position = Vector2( 7047, 103 )
+
+[node name="Floor Spike8" parent="." instance=ExtResource( 13 )]
+position = Vector2( 7171, 103 )
+
+[node name="Floor Spike9" parent="." instance=ExtResource( 13 )]
+position = Vector2( 7297, 103 )
+
+[node name="Floor Spike10" parent="." instance=ExtResource( 13 )]
+position = Vector2( 7420, 104 )
+
+[node name="Floor Spike11" parent="." instance=ExtResource( 13 )]
+position = Vector2( 9548, 102 )
+
+[node name="Floor Spike12" parent="." instance=ExtResource( 13 )]
+position = Vector2( 9671, 102 )
+
+[node name="Floor Spike13" parent="." instance=ExtResource( 13 )]
+position = Vector2( 9798, 102 )
+
+[node name="Floor Spike14" parent="." instance=ExtResource( 13 )]
+position = Vector2( 9924, 102 )
+
+[node name="Floor Spike15" parent="." instance=ExtResource( 13 )]
+position = Vector2( 10048, 102 )
+
+[node name="Floor Spike16" parent="." instance=ExtResource( 13 )]
+position = Vector2( 10174, 101 )
+
+[node name="Floor Spike17" parent="." instance=ExtResource( 13 )]
+position = Vector2( 10300, 101 )
+
+[node name="Floor Spike18" parent="." instance=ExtResource( 13 )]
+position = Vector2( 10421, 101 )
+
+[node name="Floor Spike19" parent="." instance=ExtResource( 13 )]
+position = Vector2( 10547, 101 )
+
+[node name="Floor Spike20" parent="." instance=ExtResource( 13 )]
+position = Vector2( 10674, 102 )
+
+[node name="Floor Spike21" parent="." instance=ExtResource( 13 )]
+position = Vector2( 10799, 101 )
+
+[editable path="Player"]
+[editable path="Message"]
+[editable path="Giant Spike Wall"]

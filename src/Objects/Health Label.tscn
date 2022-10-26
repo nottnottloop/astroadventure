@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/User Interface/Bold Arial.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/Objects/Health Label.gd" type="Script" id=2]
+
+[node name="Label" type="Label"]
+margin_right = 311.0
+margin_bottom = 72.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Health: %s"
+script = ExtResource( 2 )

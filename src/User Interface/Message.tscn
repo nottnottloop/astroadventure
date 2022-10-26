@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/User Interface/Liberation Sans.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/User Interface/Message.gd" type="Script" id=2]
+
+[node name="Message" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Message Layer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Message Layer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="Title" type="Label" parent="Message Layer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 1 )
+text = "Tutorial 1"
+align = 1
+
+[node name="Body" type="Label" parent="Message Layer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -304.5
+margin_top = -160.0
+margin_right = 304.5
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 1 )
+text = "Hold D to move right
+
+Hold A to move left"
+align = 1
+
+[node name="Space to cont" type="Label" parent="Message Layer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -63.0
+custom_fonts/font = ExtResource( 1 )
+text = "'Press space to continue'"
+align = 1
