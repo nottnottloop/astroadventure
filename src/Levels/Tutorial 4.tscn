@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Objects/TileMap.tscn" type="PackedScene" id=2]
@@ -8,14 +8,15 @@
 [ext_resource path="res://src/Objects/Portal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Actors/Enemies/Giant Spike Wall.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/User Interface/Message.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/User Interface/Liberation Sans Smaller.tres" type="DynamicFont" id=9]
 [ext_resource path="res://src/Actors/Enemies/Death Plane.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Levels/Level 1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/Objects/Platform.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/Actors/Enemies/Floor Spike.tscn" type="PackedScene" id=13]
 
 [node name="Level" type="Node2D"]
-position = Vector2( -157, 228 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 4294, 1569 )
@@ -42,14 +43,12 @@ next_level = ExtResource( 11 )
 
 [node name="Message" parent="." instance=ExtResource( 8 )]
 
-[node name="Message Layer" parent="Message" index="0"]
-visible = false
-
 [node name="Title" parent="Message/Message Layer" index="1"]
 text = "Final Tutorial"
 
 [node name="Body" parent="Message/Message Layer" index="2"]
-custom_fonts/font = ExtResource( 9 )
+margin_top = -227.0
+margin_bottom = 232.0
 text = "The Spike wall is chasing you and will kill you instantly if you touch it!
 
 Quickly get to the end of the map to escape!"

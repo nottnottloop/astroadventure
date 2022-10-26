@@ -1,207 +1,39 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Actors/Enemies/Rat White.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Objects/TileMap.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Background/SpaceBackGround.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Plants/VioletMushroom_01.png" type="Texture" id=4]
-[ext_resource path="res://src/User Interface/Message.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Objects/Platform.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/Objects/Rock.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/Plants/VioletTree_02.png" type="Texture" id=9]
-[ext_resource path="res://src/Objects/Shotgun.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/Objects/AK.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/Objects/Sniper.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/Actors/Enemies/Skull Blue.tscn" type="PackedScene" id=13]
-[ext_resource path="res://src/Actors/Enemies/Rat White.tscn" type="PackedScene" id=14]
-[ext_resource path="res://src/User Interface/HealthDisplay.tscn" type="PackedScene" id=15]
-[ext_resource path="res://src/Objects/Health Label.tscn" type="PackedScene" id=16]
-[ext_resource path="res://src/Objects/Portal.tscn" type="PackedScene" id=17]
-[ext_resource path="res://src/Levels/Tutorial 4.tscn" type="PackedScene" id=18]
+[ext_resource path="res://src/Actors/Enemies/Ooze Green.tscn" type="PackedScene" id=3]
 
 [node name="Level" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HealthDisplay" parent="." instance=ExtResource( 15 )]
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2198, 979 )
-scale = Vector2( 7, 7 )
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="mush2" type="Sprite" parent="."]
-position = Vector2( 4298, 1529 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
-
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
 position = Vector2( 107, 116 )
 show_collision = false
 tile_data = PoolIntArray( -1310721, 0, 0, -1376256, 0, 0, -1376255, 0, 0, -1376254, 0, 0, -1376253, 0, 0, -1376252, 0, 0, -1376251, 0, 0, -1376250, 0, 0, -1376249, 0, 0, -1376248, 0, 0, -1376247, 0, 0, -1376246, 0, 0, -1376245, 0, 0, -1376244, 0, 0, -1376243, 0, 0, -1376242, 0, 0, -1376241, 0, 0, -1376240, 0, 0, -1376239, 0, 0, -1376238, 0, 0, -1376237, 0, 0, -1376236, 0, 0, -1376235, 0, 0, -1376234, 0, 0, -1376233, 0, 0, -1376232, 0, 0, -1376231, 0, 0, -1376230, 0, 0, -1376229, 0, 0, -1376228, 0, 0, -1376227, 0, 0, -1376226, 0, 0, -1376225, 0, 0, -1376224, 0, 0, -1376223, 0, 0, -1376222, 0, 0, -1376221, 0, 0, -1376220, 0, 0, -1376219, 0, 0, -1245185, 0, 0, -1310683, 0, 0, -1179649, 0, 0, -1245147, 0, 0, -1114113, 0, 0, -1179611, 0, 0, -1048577, 0, 0, -1114075, 0, 0, -983041, 0, 0, -1048539, 0, 0, -917505, 0, 0, -983003, 0, 0, -851969, 0, 0, -917467, 0, 0, -786433, 0, 0, -851931, 0, 0, -720897, 0, 0, -786395, 0, 0, -655361, 0, 0, -720859, 0, 0, -589825, 0, 0, -655338, 0, 0, -655337, 0, 0, -655336, 0, 0, -655335, 0, 0, -655334, 1, 0, -655323, 0, 0, -524289, 0, 0, -589802, 0, 0, -589801, 0, 0, -589800, 0, 0, -589799, 0, 0, -589798, 0, 0, -589797, 1, 0, -589787, 0, 0, -458753, 0, 0, -524266, 0, 0, -524265, 0, 0, -524264, 0, 0, -524263, 0, 0, -524262, 0, 0, -524261, 0, 0, -524260, 1, 0, -524251, 0, 0, -393217, 0, 0, -458730, 0, 0, -458729, 0, 0, -458728, 0, 0, -458727, 0, 0, -458726, 0, 0, -458725, 0, 0, -458724, 0, 0, -458723, 1, 0, -458715, 0, 0, -327681, 0, 0, -393194, 0, 0, -393193, 0, 0, -393192, 0, 0, -393191, 0, 0, -393190, 0, 0, -393189, 0, 0, -393188, 0, 0, -393187, 0, 0, -393186, 0, 0, -393185, 0, 0, -393184, 0, 0, -393183, 0, 0, -393182, 0, 0, -393179, 0, 0, -262145, 0, 0, -327658, 0, 0, -327643, 0, 0, -196609, 0, 0, -262122, 0, 0, -262107, 0, 0, -131073, 0, 0, -196586, 0, 0, -196571, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131050, 0, 0, -131047, 0, 0, -131046, 0, 0, -131045, 0, 0, -131044, 0, 0, -131043, 0, 0, -131042, 0, 0, -131041, 0, 0, -131040, 0, 0, -131039, 0, 0, -131038, 0, 0, -131037, 0, 0, -131036, 0, 0, -131035, 0, 0, -1, 0, 0, -65514, 0, 0, -65499, 0, 0, 65535, 0, 0, 22, 0, 0, 37, 0, 0, 131071, 0, 0, 65558, 0, 0, 65573, 0, 0, 196607, 0, 0, 131094, 0, 0, 131095, 0, 0, 131096, 0, 0, 131097, 0, 0, 131098, 0, 0, 131099, 0, 0, 131100, 0, 0, 131101, 0, 0, 131102, 0, 0, 131103, 0, 0, 131104, 0, 0, 131105, 0, 0, 131106, 0, 0, 131109, 0, 0, 262143, 0, 0, 196630, 0, 0, 196645, 0, 0, 327679, 0, 0, 262166, 0, 0, 262181, 0, 0, 393215, 0, 0, 327702, 0, 0, 327717, 0, 0, 458751, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 393249, 0, 0, 393250, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 524287, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458777, 0, 0, 458778, 0, 0, 458779, 0, 0, 458780, 0, 0, 458781, 0, 0, 458782, 0, 0, 458783, 0, 0, 458784, 0, 0, 458785, 0, 0, 458786, 0, 0, 458787, 0, 0, 458788, 0, 0, 458789, 0, 0, 589823, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 655359, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 589861, 0, 0, 720895, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655397, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0, 720923, 0, 0, 720924, 0, 0, 720925, 0, 0, 720926, 0, 0, 720927, 0, 0, 720928, 0, 0, 720929, 0, 0, 720930, 0, 0, 720931, 0, 0, 720932, 0, 0, 720933, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 786456, 0, 0, 786457, 0, 0, 786458, 0, 0, 786459, 0, 0, 786460, 0, 0, 786461, 0, 0, 786462, 0, 0, 786463, 0, 0, 786464, 0, 0, 786465, 0, 0, 786466, 0, 0, 786467, 0, 0, 786468, 0, 0, 786469, 0, 0, 917503, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, 0, 0, 852000, 0, 0, 852001, 0, 0, 852002, 0, 0, 852003, 0, 0, 852004, 0, 0, 852005, 0, 0, 983039, 0, 0, 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917530, 0, 0, 917531, 0, 0, 917532, 0, 0, 917533, 0, 0, 917534, 0, 0, 917535, 0, 0, 917536, 0, 0, 917537, 0, 0, 917538, 0, 0, 917539, 0, 0, 917540, 0, 0, 917541, 0, 0, 1048575, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 0, 0, 983077, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 0, 0, 1048598, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 0, 0, 1048603, 0, 0, 1048604, 0, 0, 1048605, 0, 0, 1048606, 0, 0, 1048607, 0, 0, 1048608, 0, 0, 1048609, 0, 0, 1048610, 0, 0, 1048611, 0, 0, 1048612, 0, 0, 1048613, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1114136, 0, 0, 1114137, 0, 0, 1114138, 0, 0, 1114139, 0, 0, 1114140, 0, 0, 1114141, 0, 0, 1114142, 0, 0, 1114143, 0, 0, 1114144, 0, 0, 1114145, 0, 0, 1114146, 0, 0, 1114147, 0, 0, 1114148, 0, 0, 1114149, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1179672, 0, 0, 1179673, 0, 0, 1179674, 0, 0, 1179675, 0, 0, 1179676, 0, 0, 1179677, 0, 0, 1179678, 0, 0, 1179679, 0, 0, 1179680, 0, 0, 1179681, 0, 0, 1179682, 0, 0, 1179683, 0, 0, 1179684, 0, 0, 1179685, 0, 0, 1310719, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0, 1245216, 0, 0, 1245217, 0, 0, 1245218, 0, 0, 1245219, 0, 0, 1245220, 0, 0, 1245221, 0, 0, 1376255, 0, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 1310725, 0, 0, 1310726, 0, 0, 1310727, 0, 0, 1310728, 0, 0, 1310729, 0, 0, 1310730, 0, 0, 1310731, 0, 0, 1310732, 0, 0, 1310733, 0, 0, 1310734, 0, 0, 1310735, 0, 0, 1310736, 0, 0, 1310737, 0, 0, 1310738, 0, 0, 1310739, 0, 0, 1310740, 0, 0, 1310741, 0, 0, 1310742, 0, 0, 1310743, 0, 0, 1310744, 0, 0, 1310745, 0, 0, 1310746, 0, 0, 1310747, 0, 0, 1310748, 0, 0, 1310749, 0, 0, 1310750, 0, 0, 1310751, 0, 0, 1310752, 0, 0, 1310753, 0, 0, 1310754, 0, 0, 1310755, 0, 0, 1310756, 0, 0, 1310757, 0, 0, 1310758, 0, 0 )
 
-[node name="Message" parent="." instance=ExtResource( 5 )]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 1161, -79 )
+current = true
+zoom = Vector2( 3, 3 )
 
-[node name="Title" parent="Message/Message Layer" index="1"]
-text = "Tutorial 3"
-
-[node name="Body" parent="Message/Message Layer" index="2"]
-margin_left = -502.0
-margin_top = -334.0
-margin_right = 502.0
-margin_bottom = 653.0
-text = "Press E when near a weapon to pick it up.
-
-You can also swap the current weapon you have with another by pressing E while near a weapon.
-
-Click the left mouse button to fire the weapon in your hand.
-
-Note :
-- You can only Hold one gun at a time
-- Each gun has its own damage, fire rate and bullet speed. You can try them all out on the enemies here!"
-autowrap = true
-
-[node name="Platform" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1549, 1394 )
-
-[node name="Platform2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1219, 1196 )
-
-[node name="Platform3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1665, 1025 )
-
-[node name="Platform4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2656, 768 )
-
-[node name="Platform5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2253, 552 )
-
-[node name="Platform6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2640, 327 )
-
-[node name="Platform7" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2288, 86 )
-
-[node name="Platform8" parent="." instance=ExtResource( 7 )]
-position = Vector2( 592, -285 )
-
-[node name="Platform9" parent="." instance=ExtResource( 7 )]
-position = Vector2( 316, -406 )
-
-[node name="Platform10" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1180, -558 )
-
-[node name="Platform11" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1889, -805 )
-
-[node name="Platform12" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2520, -990 )
-
-[node name="Rock" parent="." instance=ExtResource( 8 )]
-position = Vector2( 173, 1539 )
-
-[node name="tree" type="Sprite" parent="."]
-position = Vector2( 666, 1511 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="tree2" type="Sprite" parent="."]
-position = Vector2( 1921, 1513 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Shotgun" parent="." instance=ExtResource( 10 )]
-position = Vector2( 559, 1563 )
-
-[node name="AK" parent="." instance=ExtResource( 11 )]
-position = Vector2( 811, 1563 )
-
-[node name="Sniper" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1048, 1563 )
-
-[node name="Debug" type="Camera2D" parent="."]
-position = Vector2( -214, 10 )
-
-[node name="Label" parent="." instance=ExtResource( 16 )]
-margin_left = 1255.0
-margin_top = -443.0
-margin_right = 1666.0
-margin_bottom = -353.0
-monster_name = "Skull Blue"
-
-[node name="Label2" parent="." instance=ExtResource( 16 )]
-margin_left = 4274.0
-margin_top = -417.0
-margin_right = 4585.0
-margin_bottom = -345.0
-monster_name = "Rat White"
-
-[node name="Label3" parent="." instance=ExtResource( 16 )]
-margin_left = 4242.0
-margin_top = 115.0
-margin_right = 4553.0
-margin_bottom = 187.0
-monster_name = "Rat White2"
-
-[node name="Label4" parent="." instance=ExtResource( 16 )]
-margin_left = 4274.0
-margin_top = 651.0
-margin_right = 4585.0
-margin_bottom = 723.0
-monster_name = "Rat White3"
-
-[node name="Portal" parent="." instance=ExtResource( 17 )]
-position = Vector2( 4700, 1504 )
-next_level = ExtResource( 18 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 294, 1496 )
-
-[node name="Camera2D" parent="Player" index="0"]
-zoom = Vector2( 1.12, 1.12 )
-
-[node name="Skull Blue" parent="." instance=ExtResource( 13 )]
-position = Vector2( 1746, -240 )
-scale = Vector2( 2, 2 )
-
-[node name="Body" parent="Skull Blue" index="0"]
-scale = Vector2( 1, 1 )
-
-[node name="Position2D" type="Position2D" parent="Skull Blue/Waypoints" index="0"]
-
-[node name="Position2D2" type="Position2D" parent="Skull Blue/Waypoints" index="1"]
-position = Vector2( -452, 6 )
-
-[node name="Rat White" parent="." instance=ExtResource( 14 )]
-position = Vector2( 4486, -221 )
+[node name="Rat White" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1749, 1508 )
 
 [node name="Position2D" type="Position2D" parent="Rat White/Waypoints" index="0"]
 
 [node name="Position2D2" type="Position2D" parent="Rat White/Waypoints" index="1"]
-position = Vector2( -1175, 0 )
+position = Vector2( -1037, 0 )
 
-[node name="Rat White2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 4436, 300 )
+[node name="Ooze Green" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1669, 219 )
 
-[node name="Position2D" type="Position2D" parent="Rat White2/Waypoints" index="0"]
+[node name="Position2D" type="Position2D" parent="Ooze Green/Waypoints" index="0"]
 
-[node name="Position2D2" type="Position2D" parent="Rat White2/Waypoints" index="1"]
-position = Vector2( -1175, 0 )
+[node name="Position2D2" type="Position2D" parent="Ooze Green/Waypoints" index="1"]
+position = Vector2( -433, 0 )
 
-[node name="Rat White3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 4484, 837 )
-
-[node name="Position2D" type="Position2D" parent="Rat White3/Waypoints" index="0"]
-
-[node name="Position2D2" type="Position2D" parent="Rat White3/Waypoints" index="1"]
-position = Vector2( -1175, 0 )
-
-[editable path="Message"]
-[editable path="Player"]
-[editable path="Skull Blue"]
 [editable path="Rat White"]
-[editable path="Rat White2"]
-[editable path="Rat White3"]
+[editable path="Ooze Green"]

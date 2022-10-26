@@ -11,6 +11,8 @@
 
 [node name="Level" type="Node2D"]
 
+[node name="Message" parent="." instance=ExtResource( 8 )]
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1453, 687 )
 scale = Vector2( 5, 5 )
@@ -69,10 +71,5 @@ tile_data = PoolIntArray( -983043, 0, 0, -983042, 0, 0, -983041, 0, 0, -1048576,
 position = Vector2( 4327, 46 )
 next_level = ExtResource( 7 )
 
-[node name="Message" parent="." instance=ExtResource( 8 )]
-
-[node name="Message Layer" parent="Message" index="0"]
-visible = false
-
-[editable path="Player"]
 [editable path="Message"]
+[editable path="Player"]

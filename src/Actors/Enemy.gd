@@ -42,7 +42,7 @@ func _on_enemy_body_exited(body):
 
 func damage():
 	health -= PlayerData.bullet_damage
-	if health < 0 and !invincible:
+	if health <= 0 and !invincible:
 		queue_free()
 		
 func flip_sprite():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Objects/TileMap.tscn" type="PackedScene" id=2]
@@ -21,10 +21,6 @@
 [ext_resource path="res://src/Objects/Health Label.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/Actors/Enemies/Ooze Green.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/User Interface/HealthDisplay.tscn" type="PackedScene" id=21]
-
-[sub_resource type="RectangleShape2D" id=1]
-resource_local_to_scene = true
-extents = Vector2( 31.5, 34.75 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -83,7 +79,6 @@ tracks/1/keys = {
 }
 
 [node name="Level" type="Node2D"]
-position = Vector2( -172, 232 )
 
 [node name="HealthDisplay" parent="." instance=ExtResource( 21 )]
 
@@ -167,247 +162,25 @@ texture = ExtResource( 4 )
 
 [node name="Giant Spike Wall" parent="." instance=ExtResource( 7 )]
 position = Vector2( -617, -2261 )
-collision_layer = 2
-collision_mask = 33
 attack_damage = 0
 
 [node name="Death Plane" parent="." instance=ExtResource( 10 )]
 position = Vector2( 73477, 2281 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike" parent="." instance=ExtResource( 13 )]
-position = Vector2( 9624, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 9752, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 9851, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike4" parent="." instance=ExtResource( 13 )]
-position = Vector2( 9984, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike5" parent="." instance=ExtResource( 13 )]
-position = Vector2( 10117, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike6" parent="." instance=ExtResource( 13 )]
-position = Vector2( 10244, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike7" parent="." instance=ExtResource( 13 )]
-position = Vector2( 10375, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike8" parent="." instance=ExtResource( 13 )]
-position = Vector2( 10513, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike9" parent="." instance=ExtResource( 13 )]
-position = Vector2( 10654, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike10" parent="." instance=ExtResource( 13 )]
-position = Vector2( 10782, 105 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike11" parent="." instance=ExtResource( 13 )]
-position = Vector2( 10854, 105 )
-collision_layer = 2
-collision_mask = 33
 
 [node name="AK47" parent="." instance=ExtResource( 14 )]
 position = Vector2( 660, 473 )
 
-[node name="Platform" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1451, 103 )
-
-[node name="Platform2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2108, -100 )
-
-[node name="Platform3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2800, -224 )
-
-[node name="Platform4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 3686, -224 )
-
-[node name="Platform5" parent="." instance=ExtResource( 9 )]
-position = Vector2( 3467, 519 )
-
 [node name="Shotgun" parent="." instance=ExtResource( 15 )]
 position = Vector2( 3753, -270 )
 
-[node name="Platform6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4940, -183 )
-
-[node name="Platform7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 5305, -433 )
-
-[node name="Platform8" parent="." instance=ExtResource( 9 )]
-position = Vector2( 5683, -697 )
-
-[node name="Platform9" parent="." instance=ExtResource( 9 )]
-position = Vector2( 6423, -437 )
-
-[node name="Platform10" parent="." instance=ExtResource( 9 )]
-position = Vector2( 9583, -165 )
-
-[node name="Platform11" parent="." instance=ExtResource( 9 )]
-position = Vector2( 13468, -437 )
-
-[node name="Platform12" parent="." instance=ExtResource( 9 )]
-position = Vector2( 17176, -81 )
-
-[node name="Platform13" parent="." instance=ExtResource( 9 )]
-position = Vector2( 22052, -271 )
-
-[node name="Platform14" parent="." instance=ExtResource( 9 )]
-position = Vector2( 23563, -550 )
-
-[node name="Floor Spike12" parent="." instance=ExtResource( 13 )]
-position = Vector2( 14859, 103 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike13" parent="." instance=ExtResource( 13 )]
-position = Vector2( 14989, 103 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike14" parent="." instance=ExtResource( 13 )]
-position = Vector2( 15119, 103 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike15" parent="." instance=ExtResource( 13 )]
-position = Vector2( 16498, -30 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike16" parent="." instance=ExtResource( 13 )]
-position = Vector2( 16633, -30 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike17" parent="." instance=ExtResource( 13 )]
-position = Vector2( 16757, -30 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike18" parent="." instance=ExtResource( 13 )]
-position = Vector2( 16883, -30 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike19" parent="." instance=ExtResource( 13 )]
-position = Vector2( 17015, -30 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike20" parent="." instance=ExtResource( 13 )]
-position = Vector2( 17143, -30 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike21" parent="." instance=ExtResource( 13 )]
-position = Vector2( 17240, -28 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike22" parent="." instance=ExtResource( 13 )]
-position = Vector2( 19248, 104 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike23" parent="." instance=ExtResource( 13 )]
-position = Vector2( 19369, 102 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike24" parent="." instance=ExtResource( 13 )]
-position = Vector2( 19504, 102 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike25" parent="." instance=ExtResource( 13 )]
-position = Vector2( 19630, 97 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike26" parent="." instance=ExtResource( 13 )]
-position = Vector2( 19988, 104 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike27" parent="." instance=ExtResource( 13 )]
-position = Vector2( 20117, 99 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike28" parent="." instance=ExtResource( 13 )]
-position = Vector2( 20613, 97 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike29" parent="." instance=ExtResource( 13 )]
-position = Vector2( 20740, 101 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike30" parent="." instance=ExtResource( 13 )]
-position = Vector2( 21248, 100 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike31" parent="." instance=ExtResource( 13 )]
-position = Vector2( 21382, 96 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike32" parent="." instance=ExtResource( 13 )]
-position = Vector2( 21891, 94 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike33" parent="." instance=ExtResource( 13 )]
-position = Vector2( 22021, 103 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Floor Spike34" parent="." instance=ExtResource( 13 )]
-position = Vector2( 22117, 104 )
-collision_layer = 2
-collision_mask = 33
-
 [node name="Spike Ball" parent="." instance=ExtResource( 18 )]
 position = Vector2( 20077, -1137 )
-collision_layer = 2
-collision_mask = 33
 
 [node name="Spike Ball2" parent="." instance=ExtResource( 18 )]
 position = Vector2( 20690, -1023 )
-collision_layer = 2
-collision_mask = 33
 
 [node name="Spike Ball3" parent="." instance=ExtResource( 18 )]
 position = Vector2( 21325, -1023 )
-collision_layer = 2
-collision_mask = 33
 
 [node name="Sniper" parent="." instance=ExtResource( 16 )]
 position = Vector2( 22794, -843 )
@@ -417,15 +190,6 @@ position = Vector2( 24740, -103 )
 
 [node name="Ooze Green" parent="." instance=ExtResource( 20 )]
 position = Vector2( 3046, 427 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Hitbox" parent="Ooze Green" index="1"]
-collision_layer = 0
-collision_mask = 33
-
-[node name="CollisionShape2D2" parent="Ooze Green/Hitbox" index="0"]
-shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ooze Green"]
 autoplay = "patrol"
@@ -434,27 +198,9 @@ anims/patrol = SubResource( 3 )
 
 [node name="Ooze Green2" parent="." instance=ExtResource( 20 )]
 position = Vector2( 8285.43, -106 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Hitbox" parent="Ooze Green2" index="1"]
-collision_layer = 0
-collision_mask = 33
-
-[node name="CollisionShape2D2" parent="Ooze Green2/Hitbox" index="0"]
-shape = SubResource( 1 )
 
 [node name="Ooze Green3" parent="." instance=ExtResource( 20 )]
 position = Vector2( 8165, -106 )
-collision_layer = 2
-collision_mask = 33
-
-[node name="Hitbox" parent="Ooze Green3" index="1"]
-collision_layer = 0
-collision_mask = 33
-
-[node name="CollisionShape2D2" parent="Ooze Green3/Hitbox" index="0"]
-shape = SubResource( 1 )
 
 [node name="Label" parent="." instance=ExtResource( 19 )]
 margin_left = 2707.0
@@ -471,14 +217,155 @@ margin_bottom = -206.0
 monster_name = "Ooze Green2"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2668, 14 )
+position = Vector2( -453, 46 )
 
-[connection signal="body_entered" from="Ooze Green/Hitbox" to="Ooze Green" method="_on_enemy_body_entered"]
-[connection signal="body_exited" from="Ooze Green/Hitbox" to="Ooze Green" method="_on_enemy_body_exited"]
-[connection signal="body_entered" from="Ooze Green2/Hitbox" to="Ooze Green2" method="_on_enemy_body_entered"]
-[connection signal="body_exited" from="Ooze Green2/Hitbox" to="Ooze Green2" method="_on_enemy_body_exited"]
-[connection signal="body_entered" from="Ooze Green3/Hitbox" to="Ooze Green3" method="_on_enemy_body_entered"]
-[connection signal="body_exited" from="Ooze Green3/Hitbox" to="Ooze Green3" method="_on_enemy_body_exited"]
+[node name="Floor Spikes" type="Node2D" parent="."]
+
+[node name="Floor Spike" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 9624, 105 )
+
+[node name="Floor Spike2" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 9752, 105 )
+
+[node name="Floor Spike3" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 9851, 105 )
+
+[node name="Floor Spike4" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 9984, 105 )
+
+[node name="Floor Spike5" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 10117, 105 )
+
+[node name="Floor Spike6" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 10244, 105 )
+
+[node name="Floor Spike7" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 10375, 105 )
+
+[node name="Floor Spike8" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 10513, 105 )
+
+[node name="Floor Spike9" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 10654, 105 )
+
+[node name="Floor Spike10" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 10782, 105 )
+
+[node name="Floor Spike11" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 10854, 105 )
+
+[node name="Floor Spike12" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 14859, 103 )
+
+[node name="Floor Spike13" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 14989, 103 )
+
+[node name="Floor Spike14" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 15119, 103 )
+
+[node name="Floor Spike15" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 16498, -30 )
+
+[node name="Floor Spike16" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 16633, -30 )
+
+[node name="Floor Spike17" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 16757, -30 )
+
+[node name="Floor Spike18" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 16883, -30 )
+
+[node name="Floor Spike19" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 17015, -30 )
+
+[node name="Floor Spike20" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 17143, -30 )
+
+[node name="Floor Spike21" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 17240, -28 )
+
+[node name="Floor Spike22" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 19248, 104 )
+
+[node name="Floor Spike23" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 19369, 102 )
+
+[node name="Floor Spike24" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 19504, 102 )
+
+[node name="Floor Spike25" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 19630, 97 )
+
+[node name="Floor Spike26" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 19988, 104 )
+
+[node name="Floor Spike27" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 20117, 99 )
+
+[node name="Floor Spike28" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 20613, 97 )
+
+[node name="Floor Spike29" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 20740, 101 )
+
+[node name="Floor Spike30" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 21248, 100 )
+
+[node name="Floor Spike31" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 21382, 96 )
+
+[node name="Floor Spike32" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 21891, 94 )
+
+[node name="Floor Spike33" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 22021, 103 )
+
+[node name="Floor Spike34" parent="Floor Spikes" instance=ExtResource( 13 )]
+position = Vector2( 22117, 104 )
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 1451, 103 )
+
+[node name="Platform2" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 2108, -100 )
+
+[node name="Platform3" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 2800, -224 )
+
+[node name="Platform4" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 3686, -224 )
+
+[node name="Platform5" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 3467, 519 )
+
+[node name="Platform6" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 4940, -183 )
+
+[node name="Platform7" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 5305, -433 )
+
+[node name="Platform8" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 5683, -697 )
+
+[node name="Platform9" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 6423, -437 )
+
+[node name="Platform10" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 9583, -165 )
+
+[node name="Platform11" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 13468, -437 )
+
+[node name="Platform12" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 17176, -81 )
+
+[node name="Platform13" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 22052, -271 )
+
+[node name="Platform14" parent="Platforms" instance=ExtResource( 9 )]
+position = Vector2( 23563, -550 )
 
 [editable path="Message"]
 [editable path="Ooze Green"]

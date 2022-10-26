@@ -12,6 +12,11 @@ var bullet_damage = 0
 var fire_rate = 0.0
 var bullet_speed = 0
 
+func reset():
+	previous_gun = ""
+	gun = ""
+	guns_in_range = 0
+	
 func set_health(value):
 	health = value
 	if health < 1:
@@ -43,7 +48,6 @@ func set_gun(value):
 	print(gun + " picked up")
 	emit_signal("gun_picked_up")
 
-		
 func reduce_guns_in_range():
 	guns_in_range -= 1
 
