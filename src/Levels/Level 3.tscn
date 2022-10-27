@@ -1,0 +1,1109 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Objects/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Background/Painted HQ 2D Forest Medieval Background/night/mountain01.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Plants/VioletTree_02.png" type="Texture" id=4]
+[ext_resource path="res://src/Objects/Rock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/Portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Actors/Enemies/Giant Spike Wall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Background/Painted HQ 2D Forest Medieval Background/night/sky.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Background/Painted HQ 2D Forest Medieval Background/night/mountain02.png" type="Texture" id=9]
+[ext_resource path="res://src/Actors/Enemies/Death Plane.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Background/Painted HQ 2D Forest Medieval Background/night/cloud01.png" type="Texture" id=11]
+[ext_resource path="res://src/Actors/Enemies/Floor Spike.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Objects/Drugs.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Objects/AK.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/Objects/Shotgun.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/Objects/Sniper.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/Actors/Enemies/Pinkworm.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/Actors/Enemies/Ooze Black.tscn" type="PackedScene" id=18]
+[ext_resource path="res://src/Actors/Enemies/White Scorpion.tscn" type="PackedScene" id=19]
+[ext_resource path="res://src/Actors/Enemies/Boss.tscn" type="PackedScene" id=20]
+[ext_resource path="res://src/Actors/Enemies/Spike Ball.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/User Interface/HealthDisplay.tscn" type="PackedScene" id=22]
+[ext_resource path="res://src/Objects/Health Label.tscn" type="PackedScene" id=23]
+[ext_resource path="res://src/Objects/Platform.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Assets/Tiles/LeftStepsReallyScaled.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Tiles/Old/TileFull.png" type="Texture" id=26]
+[ext_resource path="res://src/Objects/DestructibleTiles.gd" type="Script" id=27]
+[ext_resource path="res://src/Actors/Enemies/Skull Pink.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Assets/Background/Painted HQ 2D Forest Medieval Background/night/cloud02.png" type="Texture" id=29]
+[ext_resource path="res://src/Levels/Main Menu.tscn" type="PackedScene" id=30]
+[ext_resource path="res://src/Sounds/Music Start.tscn" type="PackedScene" id=31]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 246, 262 )
+
+[node name="Level" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OG spawn" type="Position2D" parent="."]
+position = Vector2( 72, 53 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sky" type="Sprite" parent="."]
+position = Vector2( 14157, -4531 )
+scale = Vector2( 18, 17 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Mountain01" type="Sprite" parent="."]
+position = Vector2( 4830, 390 )
+scale = Vector2( 10.3, 7 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Mountain02" type="Sprite" parent="."]
+position = Vector2( 20703, 648 )
+scale = Vector2( 10.3, 7 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -76, 57 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rock" parent="." instance=ExtResource( 5 )]
+position = Vector2( -565, 77 )
+collision_layer = 0
+collision_mask = 254
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HealthDisplay" parent="." instance=ExtResource( 22 )]
+
+[node name="Debug" type="Camera2D" parent="."]
+position = Vector2( 25952, -481 )
+zoom = Vector2( 3, 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 73, 53 )
+
+[node name="Camera2D" parent="Player" index="0"]
+position = Vector2( 12, -716 )
+zoom = Vector2( 1.79, 1.79 )
+
+[node name="Giant Spike Wall" parent="." instance=ExtResource( 7 )]
+position = Vector2( -1796, -2399 )
+z_index = 20
+speed = 235
+
+[node name="Body" parent="Giant Spike Wall" index="1"]
+collision_mask = 65
+
+[node name="Position2D" type="Position2D" parent="Giant Spike Wall/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Giant Spike Wall/Waypoints" index="1"]
+position = Vector2( 14422.5, 0 )
+
+[node name="Position2D3" type="Position2D" parent="Giant Spike Wall/Waypoints" index="2"]
+position = Vector2( -142953, 0 )
+
+[node name="Stairs" type="StaticBody2D" parent="."]
+position = Vector2( 27757, 3863 )
+scale = Vector2( 0.25, 0.25 )
+collision_mask = 65
+script = ExtResource( 27 )
+
+[node name="Sprite" type="Sprite" parent="Stairs"]
+position = Vector2( -56, -84 )
+texture = ExtResource( 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stairs"]
+position = Vector2( 204, -340 )
+polygon = PoolVector2Array( 12, -16, -512, 528, 12, 528 )
+
+[node name="Tile1" type="StaticBody2D" parent="."]
+position = Vector2( 27888, 3864 )
+scale = Vector2( 0.25, 0.25 )
+collision_mask = 65
+script = ExtResource( 27 )
+
+[node name="Sprite" type="Sprite" parent="Tile1"]
+position = Vector2( -56, -84 )
+texture = ExtResource( 26 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile1"]
+position = Vector2( -62, -82 )
+shape = SubResource( 1 )
+
+[node name="Tile2" type="StaticBody2D" parent="."]
+position = Vector2( 27758, 3995 )
+scale = Vector2( 0.25, 0.25 )
+collision_mask = 65
+script = ExtResource( 27 )
+
+[node name="Sprite" type="Sprite" parent="Tile2"]
+position = Vector2( -56, -84 )
+texture = ExtResource( 26 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile2"]
+position = Vector2( -62, -82 )
+shape = SubResource( 1 )
+
+[node name="Stairs2" type="StaticBody2D" parent="."]
+position = Vector2( 27627, 3993 )
+scale = Vector2( 0.25, 0.25 )
+collision_mask = 65
+script = ExtResource( 27 )
+
+[node name="Sprite" type="Sprite" parent="Stairs2"]
+position = Vector2( -56, -84 )
+texture = ExtResource( 25 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Stairs2"]
+position = Vector2( 200, -324 )
+polygon = PoolVector2Array( 12, -16, -512, 528, 12, 528 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+position = Vector2( 107, 116 )
+z_index = 10
+show_collision = false
+tile_data = PoolIntArray( -1441799, 0, 0, -1441798, 0, 0, -1441797, 0, 0, -1441796, 0, 0, -1441795, 0, 0, -1441794, 0, 0, -1441793, 0, 0, -1507328, 0, 0, -1507327, 0, 0, -1507326, 0, 0, -1507325, 0, 0, -1507324, 0, 0, -1507323, 0, 0, -1507322, 0, 0, -1507321, 0, 0, -1507320, 0, 0, -1507319, 0, 0, -1507318, 0, 0, -1507317, 0, 0, -1507316, 0, 0, -1507315, 0, 0, -1507314, 0, 0, -1507313, 0, 0, -1507312, 0, 0, -1507311, 0, 0, -1507310, 0, 0, -1507309, 0, 0, -1507308, 0, 0, -1507307, 0, 0, -1507306, 0, 0, -1507305, 0, 0, -1507304, 0, 0, -1507303, 0, 0, -1507302, 0, 0, -1507301, 0, 0, -1507300, 0, 0, -1507299, 0, 0, -1507298, 0, 0, -1507297, 0, 0, -1507296, 0, 0, -1507295, 0, 0, -1507294, 0, 0, -1507293, 0, 0, -1507292, 0, 0, -1507291, 0, 0, -1507290, 0, 0, -1507289, 0, 0, -1507288, 0, 0, -1507287, 0, 0, -1507286, 0, 0, -1507285, 0, 0, -1507284, 0, 0, -1507283, 0, 0, -1507282, 0, 0, -1507281, 0, 0, -1507280, 0, 0, -1507279, 0, 0, -1507278, 0, 0, -1507277, 0, 0, -1507276, 0, 0, -1507275, 0, 0, -1507274, 0, 0, -1507273, 0, 0, -1507272, 0, 0, -1507271, 0, 0, -1507270, 0, 0, -1507269, 0, 0, -1507268, 0, 0, -1507267, 0, 0, -1507266, 0, 0, -1507265, 0, 0, -1507264, 0, 0, -1507263, 0, 0, -1507262, 0, 0, -1507261, 0, 0, -1507260, 0, 0, -1507259, 0, 0, -1507258, 0, 0, -1507257, 0, 0, -1507256, 0, 0, -1507255, 0, 0, -1507254, 0, 0, -1507253, 0, 0, -1507252, 0, 0, -1507251, 0, 0, -1507250, 0, 0, -1507249, 0, 0, -1507248, 0, 0, -1507247, 0, 0, -1507246, 0, 0, -1507245, 0, 0, -1507244, 0, 0, -1507243, 0, 0, -1507242, 0, 0, -1507241, 0, 0, -1507240, 0, 0, -1507239, 0, 0, -1507238, 0, 0, -1507237, 0, 0, -1507236, 0, 0, -1507235, 0, 0, -1507234, 0, 0, -1507233, 0, 0, -1507232, 0, 0, -1507231, 0, 0, -1507230, 0, 0, -1507229, 0, 0, -1507228, 0, 0, -1507227, 0, 0, -1507226, 0, 0, -1507225, 0, 0, -1507224, 0, 0, -1507223, 0, 0, -1507222, 0, 0, -1507221, 0, 0, -1507220, 0, 0, -1507219, 0, 0, -1507218, 0, 0, -1507217, 0, 0, -1507216, 0, 0, -1507215, 0, 0, -1507214, 0, 0, -1507213, 0, 0, -1507212, 0, 0, -1507211, 0, 0, -1507210, 0, 0, -1507209, 0, 0, -1507208, 0, 0, -1507207, 0, 0, -1507206, 0, 0, -1507205, 0, 0, -1507204, 0, 0, -1507203, 0, 0, -1507202, 0, 0, -1507201, 0, 0, -1507200, 0, 0, -1507199, 0, 0, -1507198, 0, 0, -1507197, 0, 0, -1507196, 0, 0, -1507195, 0, 0, -1507194, 0, 0, -1507193, 0, 0, -1507192, 0, 0, -1507191, 0, 0, -1507190, 0, 0, -1507189, 0, 0, -1507188, 0, 0, -1507187, 0, 0, -1507186, 0, 0, -1507185, 0, 0, -1507184, 0, 0, -1507183, 0, 0, -1507182, 0, 0, -1507181, 0, 0, -1507180, 0, 0, -1507179, 0, 0, -1507178, 0, 0, -1507177, 0, 0, -1507176, 0, 0, -1507175, 0, 0, -1507174, 0, 0, -1507173, 0, 0, -1507172, 0, 0, -1507171, 0, 0, -1507170, 0, 0, -1507169, 0, 0, -1507168, 0, 0, -1507167, 0, 0, -1507166, 0, 0, -1507165, 0, 0, -1507164, 0, 0, -1507163, 0, 0, -1507162, 0, 0, -1507161, 0, 0, -1507160, 0, 0, -1507159, 0, 0, -1507158, 0, 0, -1507157, 0, 0, -1507156, 0, 0, -1507155, 0, 0, -1507154, 0, 0, -1507153, 0, 0, -1507152, 0, 0, -1507151, 0, 0, -1507150, 0, 0, -1507149, 0, 0, -1507148, 0, 0, -1507147, 0, 0, -1507146, 0, 0, -1507145, 0, 0, -1507144, 0, 0, -1507143, 0, 0, -1507142, 0, 0, -1507141, 0, 0, -1507140, 0, 0, -1507139, 0, 0, -1507138, 0, 0, -1507137, 0, 0, -1507136, 0, 0, -1507135, 0, 0, -1507134, 0, 0, -1507133, 0, 0, -1507132, 0, 0, -1507131, 0, 0, -1507130, 0, 0, -1507129, 0, 0, -1507128, 0, 0, -1507127, 0, 0, -1507126, 0, 0, -1507125, 0, 0, -1507124, 0, 0, -1507123, 0, 0, -1507122, 0, 0, -1507121, 0, 0, -1507120, 0, 0, -1507119, 0, 0, -1507118, 0, 0, -1507117, 0, 0, -1507116, 0, 0, -1507115, 0, 0, -1507114, 0, 0, -1507113, 0, 0, -1507112, 0, 0, -1507111, 0, 0, -1507110, 0, 0, -1376263, 0, 0, -1441654, 0, 0, -1441653, 0, 0, -1441652, 0, 0, -1441574, 0, 0, -1310727, 0, 0, -1376118, 0, 0, -1376117, 0, 0, -1376116, 0, 0, -1376038, 0, 0, -1245191, 0, 0, -1310582, 0, 0, -1310581, 0, 0, -1310580, 0, 0, -1310502, 0, 0, -1179655, 0, 0, -1245119, 0, 0, -1245046, 0, 0, -1245045, 0, 0, -1245044, 0, 0, -1244966, 0, 0, -1114119, 0, 0, -1179583, 0, 0, -1179510, 0, 0, -1179509, 0, 0, -1179508, 0, 0, -1179430, 0, 0, -1048583, 0, 0, -1114047, 0, 0, -1113974, 0, 0, -1113973, 0, 0, -1113972, 0, 0, -1113960, 0, 0, -1113959, 0, 0, -1113958, 0, 0, -1113957, 0, 0, -1113956, 0, 0, -1113955, 0, 0, -1113954, 0, 0, -1113953, 0, 0, -1113952, 0, 0, -1113951, 0, 0, -1113932, 0, 0, -1113931, 0, 0, -1113930, 0, 0, -1113929, 0, 0, -1113928, 0, 0, -1113927, 0, 0, -1113926, 1, 0, -1113894, 0, 0, -983047, 0, 0, -1048511, 0, 0, -1048501, 0, 0, -1048500, 0, 0, -1048499, 0, 0, -1048498, 0, 0, -1048438, 0, 0, -1048437, 0, 0, -1048436, 0, 0, -1048421, 0, 0, -1048396, 0, 0, -1048390, 0, 0, -1048389, 1, 0, -1048358, 0, 0, -917511, 0, 0, -982975, 0, 0, -982974, 0, 0, -982973, 0, 0, -982972, 1, 0, -982965, 0, 0, -982964, 0, 0, -982963, 0, 0, -982962, 0, 0, -982902, 0, 0, -982901, 0, 0, -982900, 0, 0, -982885, 0, 0, -982860, 0, 0, -982854, 0, 0, -982853, 0, 0, -982852, 1, 0, -982822, 0, 0, -851975, 0, 0, -917439, 0, 0, -917438, 0, 0, -917437, 0, 0, -917436, 0, 0, -917435, 1, 0, -917427, 0, 0, -917426, 0, 0, -917366, 0, 0, -917365, 0, 0, -917364, 0, 0, -917349, 0, 0, -917324, 0, 0, -917318, 0, 0, -917317, 0, 0, -917316, 0, 0, -917315, 1, 0, -917286, 0, 0, -786447, 0, 0, -786446, 0, 0, -786445, 0, 0, -786444, 0, 0, -786443, 0, 0, -786442, 0, 0, -786441, 0, 0, -786440, 0, 0, -786439, 0, 0, -851903, 0, 0, -851902, 0, 0, -851901, 0, 0, -851900, 0, 0, -851899, 0, 0, -851898, 0, 0, -851891, 0, 0, -851890, 0, 0, -851875, 2, 0, -851874, 0, 0, -851873, 0, 0, -851872, 0, 0, -851871, 0, 0, -851870, 0, 0, -851869, 0, 0, -851868, 0, 0, -851867, 0, 0, -851866, 0, 0, -851865, 0, 0, -851864, 0, 0, -851863, 0, 0, -851862, 0, 0, -851855, 0, 0, -851854, 0, 0, -851848, 0, 0, -851847, 0, 0, -851846, 0, 0, -851845, 0, 0, -851844, 0, 0, -851843, 0, 0, -851842, 0, 0, -851841, 0, 0, -851840, 0, 0, -851839, 0, 0, -851838, 0, 0, -851830, 0, 0, -851829, 0, 0, -851828, 0, 0, -851813, 0, 0, -851788, 0, 0, -851782, 0, 0, -851781, 0, 0, -851780, 0, 0, -851779, 0, 0, -851778, 0, 0, -851777, 0, 0, -851776, 0, 0, -851775, 0, 0, -851774, 0, 0, -851773, 0, 0, -851772, 0, 0, -851771, 0, 0, -851770, 0, 0, -851769, 0, 0, -851768, 0, 0, -851767, 0, 0, -851766, 0, 0, -851765, 0, 0, -851764, 0, 0, -851763, 0, 0, -851762, 0, 0, -851761, 0, 0, -851760, 0, 0, -851759, 0, 0, -851758, 0, 0, -851757, 0, 0, -851750, 0, 0, -720911, 0, 0, -720910, 0, 0, -720909, 0, 0, -720908, 0, 0, -720907, 0, 0, -720906, 0, 0, -720905, 0, 0, -720904, 0, 0, -720903, 0, 0, -786367, 0, 0, -786366, 0, 0, -786355, 0, 0, -786354, 0, 0, -786340, 0, 0, -786339, 0, 0, -786338, 0, 0, -786337, 0, 0, -786336, 0, 0, -786335, 0, 0, -786334, 0, 0, -786333, 0, 0, -786332, 0, 0, -786331, 0, 0, -786330, 0, 0, -786329, 0, 0, -786328, 0, 0, -786327, 0, 0, -786326, 0, 0, -786312, 0, 0, -786311, 0, 0, -786310, 0, 0, -786309, 0, 0, -786308, 0, 0, -786307, 0, 0, -786306, 0, 0, -786305, 0, 0, -786304, 0, 0, -786303, 0, 0, -786302, 0, 0, -786294, 0, 0, -786293, 0, 0, -786292, 0, 0, -786277, 0, 0, -786252, 0, 0, -786221, 0, 0, -786220, 0, 0, -786214, 0, 0, -655376, 0, 0, -655375, 0, 0, -655374, 0, 0, -655373, 0, 0, -655372, 0, 0, -655371, 0, 0, -655370, 0, 0, -655369, 0, 0, -655368, 0, 0, -655367, 0, 0, -720831, 0, 0, -720830, 0, 0, -720822, 2, 0, -720821, 0, 0, -720820, 0, 0, -720819, 0, 0, -720818, 0, 0, -720802, 0, 0, -720801, 0, 0, -720800, 0, 0, -720799, 0, 0, -720798, 0, 0, -720797, 0, 0, -720796, 0, 0, -720795, 0, 0, -720794, 0, 0, -720793, 0, 0, -720792, 0, 0, -720791, 0, 0, -720790, 0, 0, -720776, 0, 0, -720775, 0, 0, -720774, 0, 0, -720773, 0, 0, -720772, 0, 0, -720771, 0, 0, -720770, 0, 0, -720769, 0, 0, -720768, 0, 0, -720767, 0, 0, -720766, 0, 0, -720758, 0, 0, -720757, 0, 0, -720756, 0, 0, -720741, 0, 0, -720716, 0, 0, -720715, 0, 0, -720678, 0, 0, -589840, 0, 0, -589839, 0, 0, -589838, 0, 0, -589837, 0, 0, -589836, 0, 0, -589835, 0, 0, -589834, 0, 0, -589833, 0, 0, -589832, 0, 0, -589831, 0, 0, -655295, 0, 0, -655294, 0, 0, -655287, 2, 0, -655286, 0, 0, -655285, 0, 0, -655284, 0, 0, -655283, 0, 0, -655282, 0, 0, -655266, 0, 0, -655265, 0, 0, -655264, 0, 0, -655263, 0, 0, -655262, 0, 0, -655261, 0, 0, -655260, 0, 0, -655259, 0, 0, -655258, 0, 0, -655257, 0, 0, -655256, 0, 0, -655255, 0, 0, -655254, 0, 0, -655253, 0, 0, -655241, 0, 0, -655240, 0, 0, -655239, 0, 0, -655238, 0, 0, -655237, 0, 0, -655236, 0, 0, -655235, 0, 0, -655234, 0, 0, -655233, 0, 0, -655232, 0, 0, -655231, 0, 0, -655230, 0, 0, -655226, 0, 0, -655225, 0, 0, -655224, 0, 0, -655223, 0, 0, -655222, 0, 0, -655221, 0, 0, -655220, 0, 0, -655205, 0, 0, -655179, 0, 0, -655142, 0, 0, -524304, 0, 0, -524303, 0, 0, -524302, 0, 0, -524301, 0, 0, -524300, 0, 0, -524299, 0, 0, -524298, 0, 0, -524297, 0, 0, -524296, 0, 0, -524295, 0, 0, -589759, 0, 0, -589758, 0, 0, -589751, 0, 0, -589750, 0, 0, -589749, 0, 0, -589748, 0, 0, -589747, 0, 0, -589746, 0, 0, -589730, 0, 0, -589729, 0, 0, -589728, 0, 0, -589727, 0, 0, -589726, 0, 0, -589725, 0, 0, -589724, 0, 0, -589723, 0, 0, -589722, 0, 0, -589721, 0, 0, -589720, 0, 0, -589719, 0, 0, -589718, 0, 0, -589717, 0, 0, -589716, 0, 0, -589715, 0, 0, -589714, 0, 0, -589713, 0, 0, -589712, 0, 0, -589711, 0, 0, -589710, 0, 0, -589709, 0, 0, -589708, 0, 0, -589707, 0, 0, -589706, 0, 0, -589705, 0, 0, -589704, 0, 0, -589703, 0, 0, -589702, 0, 0, -589701, 0, 0, -589700, 0, 0, -589699, 0, 0, -589698, 0, 0, -589697, 0, 0, -589696, 0, 0, -589695, 0, 0, -589694, 0, 0, -589669, 0, 0, -589643, 0, 0, -589606, 0, 0, -458768, 0, 0, -458767, 0, 0, -458766, 0, 0, -458765, 0, 0, -458764, 0, 0, -458763, 0, 0, -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -524221, 0, 0, -524220, 0, 0, -524219, 1, 0, -524211, 0, 0, -524210, 0, 0, -524194, 0, 0, -524193, 0, 0, -524192, 0, 0, -524191, 0, 0, -524190, 0, 0, -524189, 0, 0, -524188, 0, 0, -524187, 0, 0, -524186, 0, 0, -524185, 0, 0, -524184, 0, 0, -524183, 0, 0, -524182, 0, 0, -524181, 0, 0, -524180, 0, 0, -524179, 0, 0, -524178, 0, 0, -524177, 0, 0, -524176, 0, 0, -524175, 0, 0, -524174, 0, 0, -524173, 0, 0, -524172, 0, 0, -524171, 0, 0, -524170, 0, 0, -524169, 0, 0, -524168, 0, 0, -524167, 0, 0, -524166, 0, 0, -524165, 0, 0, -524164, 0, 0, -524163, 0, 0, -524162, 0, 0, -524161, 0, 0, -524160, 0, 0, -524159, 0, 0, -524158, 0, 0, -524133, 0, 0, -524107, 0, 0, -524099, 2, 0, -524098, 0, 0, -524097, 0, 0, -524096, 0, 0, -524095, 0, 0, -524094, 0, 0, -524093, 0, 0, -524092, 0, 0, -524091, 0, 0, -524090, 0, 0, -524089, 0, 0, -524088, 0, 0, -524087, 0, 0, -524086, 0, 0, -524085, 0, 0, -524084, 0, 0, -524083, 0, 0, -524082, 0, 0, -524081, 0, 0, -524080, 0, 0, -524079, 0, 0, -524078, 0, 0, -524077, 0, 0, -524076, 0, 0, -524075, 0, 0, -524074, 0, 0, -524073, 0, 0, -524072, 0, 0, -524071, 0, 0, -524070, 0, 0, -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 0, 0, -393228, 0, 0, -393227, 0, 0, -393226, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -458684, 0, 0, -458683, 0, 0, -458682, 1, 0, -458675, 0, 0, -458674, 0, 0, -458658, 0, 0, -458657, 0, 0, -458656, 0, 0, -458655, 0, 0, -458654, 0, 0, -458653, 0, 0, -458652, 0, 0, -458651, 0, 0, -458650, 0, 0, -458649, 0, 0, -458648, 0, 0, -458647, 0, 0, -458646, 0, 0, -458645, 0, 0, -458644, 0, 0, -458643, 0, 0, -458642, 0, 0, -458641, 0, 0, -458640, 0, 0, -458639, 0, 0, -458638, 0, 0, -458637, 0, 0, -458636, 0, 0, -458635, 0, 0, -458634, 0, 0, -458633, 0, 0, -458632, 0, 0, -458631, 0, 0, -458630, 0, 0, -458629, 0, 0, -458628, 0, 0, -458627, 0, 0, -458626, 0, 0, -458625, 0, 0, -458624, 0, 0, -458623, 0, 0, -458622, 0, 0, -458597, 0, 0, -458571, 0, 0, -458564, 2, 0, -458563, 0, 0, -458534, 0, 0, -327696, 0, 0, -327695, 0, 0, -327694, 0, 0, -327693, 0, 0, -327692, 0, 0, -327691, 0, 0, -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -393158, 0, 0, -393157, 0, 0, -393156, 0, 0, -393147, 0, 0, -393146, 0, 0, -393145, 0, 0, -393139, 0, 0, -393138, 0, 0, -393122, 0, 0, -393121, 0, 0, -393120, 0, 0, -393119, 0, 0, -393118, 0, 0, -393117, 0, 0, -393116, 0, 0, -393115, 0, 0, -393114, 0, 0, -393113, 0, 0, -393112, 0, 0, -393111, 0, 0, -393110, 0, 0, -393109, 0, 0, -393108, 0, 0, -393107, 0, 0, -393106, 0, 0, -393105, 0, 0, -393104, 0, 0, -393103, 0, 0, -393102, 0, 0, -393101, 0, 0, -393100, 0, 0, -393099, 0, 0, -393098, 0, 0, -393097, 0, 0, -393096, 0, 0, -393095, 0, 0, -393094, 0, 0, -393093, 0, 0, -393092, 0, 0, -393091, 0, 0, -393090, 0, 0, -393089, 0, 0, -393088, 0, 0, -393087, 0, 0, -393086, 0, 0, -393061, 0, 0, -393035, 0, 0, -392998, 0, 0, -392997, 0, 0, -392996, 0, 0, -262160, 0, 0, -262159, 0, 0, -262158, 0, 0, -262157, 0, 0, -262156, 0, 0, -262155, 0, 0, -262154, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -327622, 0, 0, -327603, 0, 0, -327602, 0, 0, -327586, 0, 0, -327585, 0, 0, -327584, 0, 0, -327583, 0, 0, -327582, 0, 0, -327581, 0, 0, -327580, 0, 0, -327579, 0, 0, -327578, 0, 0, -327577, 0, 0, -327576, 0, 0, -327575, 0, 0, -327574, 0, 0, -327573, 0, 0, -327572, 0, 0, -327571, 0, 0, -327570, 0, 0, -327569, 0, 0, -327568, 0, 0, -327567, 0, 0, -327566, 0, 0, -327565, 0, 0, -327564, 0, 0, -327563, 0, 0, -327562, 0, 0, -327561, 0, 0, -327560, 0, 0, -327559, 0, 0, -327558, 0, 0, -327557, 0, 0, -327556, 0, 0, -327555, 0, 0, -327554, 0, 0, -327553, 0, 0, -327552, 0, 0, -327551, 0, 0, -327550, 0, 0, -327525, 0, 0, -327499, 0, 0, -327498, 0, 0, -327479, 2, 0, -327478, 0, 0, -327462, 0, 0, -327461, 0, 0, -327460, 0, 0, -196624, 0, 0, -196623, 0, 0, -196622, 0, 0, -196621, 0, 0, -196620, 0, 0, -196619, 0, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -262086, 0, 0, -262070, 2, 0, -262069, 0, 0, -262068, 0, 0, -262067, 0, 0, -262066, 0, 0, -262050, 0, 0, -262049, 0, 0, -262048, 0, 0, -262047, 0, 0, -262046, 0, 0, -262045, 0, 0, -262044, 0, 0, -262043, 0, 0, -262042, 0, 0, -262041, 0, 0, -262040, 0, 0, -262039, 0, 0, -262038, 0, 0, -262037, 0, 0, -262036, 0, 0, -262035, 0, 0, -262034, 0, 0, -262033, 0, 0, -262032, 0, 0, -262031, 0, 0, -262030, 0, 0, -262029, 0, 0, -262028, 0, 0, -262027, 0, 0, -262026, 0, 0, -262025, 0, 0, -262024, 0, 0, -262023, 0, 0, -262022, 0, 0, -262021, 0, 0, -262020, 0, 0, -262019, 0, 0, -262018, 0, 0, -262017, 0, 0, -262016, 0, 0, -262015, 0, 0, -262014, 0, 0, -261989, 0, 0, -261962, 0, 0, -261944, 2, 0, -261943, 0, 0, -261942, 0, 0, -261925, 0, 0, -261924, 0, 0, -131088, 0, 0, -131087, 0, 0, -131086, 0, 0, -131085, 0, 0, -131084, 0, 0, -131083, 0, 0, -131082, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -196550, 0, 0, -196549, 0, 0, -196548, 0, 0, -196535, 2, 0, -196534, 0, 0, -196533, 0, 0, -196532, 0, 0, -196531, 0, 0, -196530, 0, 0, -196514, 0, 0, -196513, 0, 0, -196512, 0, 0, -196511, 0, 0, -196510, 0, 0, -196509, 0, 0, -196508, 0, 0, -196507, 0, 0, -196506, 0, 0, -196505, 0, 0, -196504, 0, 0, -196503, 0, 0, -196502, 0, 0, -196501, 0, 0, -196500, 0, 0, -196499, 0, 0, -196498, 0, 0, -196497, 0, 0, -196496, 0, 0, -196495, 0, 0, -196494, 0, 0, -196493, 0, 0, -196492, 0, 0, -196491, 0, 0, -196490, 0, 0, -196489, 0, 0, -196488, 0, 0, -196487, 0, 0, -196486, 0, 0, -196485, 0, 0, -196484, 0, 0, -196483, 0, 0, -196482, 0, 0, -196481, 0, 0, -196480, 0, 0, -196479, 0, 0, -196478, 0, 0, -196477, 0, 0, -196476, 0, 0, -196475, 0, 0, -196453, 0, 0, -196426, 0, 0, -196425, 0, 0, -196424, 0, 0, -196423, 0, 0, -196422, 0, 0, -196421, 0, 0, -196420, 0, 0, -196419, 0, 0, -196418, 0, 0, -196417, 0, 0, -196416, 0, 0, -196415, 0, 0, -196414, 0, 0, -196413, 0, 0, -196412, 0, 0, -196411, 0, 0, -196410, 0, 0, -196409, 0, 0, -196408, 0, 0, -196388, 0, 0, -65552, 0, 0, -65551, 0, 0, -65550, 0, 0, -65549, 0, 0, -65548, 0, 0, -65547, 0, 0, -65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -131002, 0, 0, -131001, 0, 0, -131000, 0, 0, -130999, 0, 0, -130998, 0, 0, -130997, 0, 0, -130996, 0, 0, -130995, 0, 0, -130994, 0, 0, -130978, 0, 0, -130977, 0, 0, -130976, 0, 0, -130975, 0, 0, -130974, 0, 0, -130973, 0, 0, -130972, 0, 0, -130971, 0, 0, -130970, 0, 0, -130969, 0, 0, -130968, 0, 0, -130967, 0, 0, -130966, 0, 0, -130965, 0, 0, -130964, 0, 0, -130963, 0, 0, -130962, 0, 0, -130961, 0, 0, -130960, 0, 0, -130959, 0, 0, -130958, 0, 0, -130957, 0, 0, -130956, 0, 0, -130955, 0, 0, -130954, 0, 0, -130953, 0, 0, -130952, 0, 0, -130951, 0, 0, -130950, 0, 0, -130949, 0, 0, -130948, 0, 0, -130947, 0, 0, -130946, 0, 0, -130945, 0, 0, -130944, 0, 0, -130943, 0, 0, -130942, 0, 0, -130941, 0, 0, -130940, 0, 0, -130939, 0, 0, -130933, 0, 0, -130932, 0, 0, -130931, 1, 0, -130918, 2, 0, -130917, 0, 0, -130872, 0, 0, -130852, 0, 0, -16, 0, 0, -15, 0, 0, -14, 0, 0, -13, 0, 0, -12, 0, 0, -11, 0, 0, -10, 0, 0, -9, 0, 0, -8, 0, 0, -7, 0, 0, -65466, 0, 0, -65465, 0, 0, -65464, 0, 0, -65463, 0, 0, -65462, 0, 0, -65461, 0, 0, -65460, 0, 0, -65459, 0, 0, -65458, 0, 0, -65442, 0, 0, -65441, 0, 0, -65440, 0, 0, -65439, 0, 0, -65438, 0, 0, -65437, 0, 0, -65436, 0, 0, -65435, 0, 0, -65434, 0, 0, -65433, 0, 0, -65432, 0, 0, -65431, 0, 0, -65430, 0, 0, -65429, 0, 0, -65428, 0, 0, -65427, 0, 0, -65426, 0, 0, -65425, 0, 0, -65424, 0, 0, -65423, 0, 0, -65422, 0, 0, -65421, 0, 0, -65420, 0, 0, -65419, 0, 0, -65418, 0, 0, -65417, 0, 0, -65416, 0, 0, -65415, 0, 0, -65414, 0, 0, -65413, 0, 0, -65412, 0, 0, -65411, 0, 0, -65410, 0, 0, -65409, 0, 0, -65408, 0, 0, -65407, 0, 0, -65406, 0, 0, -65405, 0, 0, -65404, 0, 0, -65403, 0, 0, -65397, 0, 0, -65396, 0, 0, -65395, 0, 0, -65394, 1, 0, -65383, 2, 0, -65382, 0, 0, -65381, 0, 0, -65336, 0, 0, -65316, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 64, 2, 0, 65, 0, 0, 66, 0, 0, 67, 0, 0, 68, 0, 0, 69, 0, 0, 70, 0, 0, 71, 0, 0, 72, 0, 0, 73, 0, 0, 74, 0, 0, 75, 0, 0, 76, 0, 0, 77, 0, 0, 78, 0, 0, 94, 0, 0, 95, 0, 0, 96, 0, 0, 97, 0, 0, 98, 0, 0, 99, 0, 0, 100, 0, 0, 101, 0, 0, 102, 0, 0, 103, 0, 0, 104, 0, 0, 105, 0, 0, 106, 0, 0, 107, 0, 0, 108, 0, 0, 109, 0, 0, 110, 0, 0, 111, 0, 0, 112, 0, 0, 113, 0, 0, 114, 0, 0, 115, 0, 0, 116, 0, 0, 117, 0, 0, 118, 0, 0, 119, 0, 0, 120, 0, 0, 121, 0, 0, 122, 0, 0, 123, 0, 0, 124, 0, 0, 125, 0, 0, 126, 0, 0, 127, 0, 0, 128, 0, 0, 129, 0, 0, 130, 0, 0, 131, 0, 0, 132, 0, 0, 133, 0, 0, 139, 0, 0, 140, 0, 0, 141, 0, 0, 142, 0, 0, 143, 1, 0, 152, 2, 0, 153, 0, 0, 154, 0, 0, 155, 0, 0, 200, 0, 0, 201, 0, 0, 202, 0, 0, 203, 1, 0, 216, 2, 0, 217, 0, 0, 218, 0, 0, 219, 0, 0, 220, 0, 0, 65599, 2, 0, 65600, 0, 0, 65601, 0, 0, 65602, 0, 0, 65603, 0, 0, 65604, 0, 0, 65605, 0, 0, 65606, 0, 0, 65607, 0, 0, 65608, 0, 0, 65609, 0, 0, 65610, 0, 0, 65611, 0, 0, 65612, 0, 0, 65613, 0, 0, 65630, 0, 0, 65631, 0, 0, 65632, 0, 0, 65633, 0, 0, 65634, 0, 0, 65635, 0, 0, 65636, 0, 0, 65637, 0, 0, 65638, 0, 0, 65639, 0, 0, 65640, 0, 0, 65641, 0, 0, 65642, 0, 0, 65643, 0, 0, 65644, 0, 0, 65645, 0, 0, 65646, 0, 0, 65647, 0, 0, 65648, 0, 0, 65649, 0, 0, 65650, 0, 0, 65651, 0, 0, 65652, 0, 0, 65653, 0, 0, 65654, 0, 0, 65655, 0, 0, 65656, 0, 0, 65657, 0, 0, 65658, 0, 0, 65659, 0, 0, 65660, 0, 0, 65661, 0, 0, 65662, 0, 0, 65663, 0, 0, 65664, 0, 0, 65665, 0, 0, 65666, 0, 0, 65667, 0, 0, 65668, 0, 0, 65669, 0, 0, 65670, 0, 0, 65671, 0, 0, 65672, 0, 0, 65673, 0, 0, 65674, 0, 0, 65675, 0, 0, 65676, 0, 0, 65677, 0, 0, 65678, 0, 0, 65679, 0, 0, 65680, 0, 0, 65681, 0, 0, 65682, 0, 0, 65683, 0, 0, 65684, 0, 0, 65685, 0, 0, 65686, 0, 0, 65687, 0, 0, 65688, 0, 0, 65689, 0, 0, 65690, 0, 0, 65691, 0, 0, 65736, 0, 0, 65737, 0, 0, 65738, 0, 0, 65739, 0, 0, 65740, 1, 0, 65751, 2, 0, 65752, 0, 0, 65754, 0, 0, 131134, 2, 0, 131135, 0, 0, 131136, 0, 0, 131137, 0, 0, 131166, 0, 0, 131167, 0, 0, 131168, 0, 0, 131169, 0, 0, 131170, 0, 0, 131171, 0, 0, 131172, 0, 0, 131173, 0, 0, 131174, 0, 0, 131175, 0, 0, 131176, 0, 0, 131177, 0, 0, 131178, 0, 0, 131179, 0, 0, 131180, 0, 0, 131181, 0, 0, 131182, 0, 0, 131183, 0, 0, 131184, 0, 0, 131185, 0, 0, 131186, 0, 0, 131187, 0, 0, 131188, 0, 0, 131189, 0, 0, 131190, 0, 0, 131191, 0, 0, 131192, 0, 0, 131193, 0, 0, 131194, 0, 0, 131195, 0, 0, 131196, 0, 0, 131197, 0, 0, 131198, 0, 0, 131199, 0, 0, 131200, 0, 0, 131201, 0, 0, 131202, 0, 0, 131203, 0, 0, 131204, 0, 0, 131205, 0, 0, 131206, 0, 0, 131207, 0, 0, 131208, 0, 0, 131209, 0, 0, 131210, 0, 0, 131211, 0, 0, 131212, 0, 0, 131213, 0, 0, 131214, 0, 0, 131215, 0, 0, 131216, 0, 0, 131217, 0, 0, 131218, 0, 0, 131219, 0, 0, 131220, 0, 0, 131221, 0, 0, 131222, 0, 0, 131223, 0, 0, 131224, 0, 0, 131225, 0, 0, 131226, 0, 0, 131227, 0, 0, 131272, 0, 0, 131273, 0, 0, 131274, 0, 0, 131275, 0, 0, 131276, 0, 0, 131277, 0, 0, 131278, 0, 0, 131279, 0, 0, 131280, 0, 0, 131281, 0, 0, 131282, 0, 0, 131283, 0, 0, 131284, 0, 0, 131285, 0, 0, 131286, 0, 0, 131287, 0, 0, 131288, 0, 0, 131289, 0, 0, 131290, 0, 0, 196642, 0, 0, 196643, 0, 0, 196644, 0, 0, 196645, 0, 0, 196646, 0, 0, 196647, 0, 0, 196648, 0, 0, 196649, 0, 0, 196650, 0, 0, 196651, 0, 0, 196652, 0, 0, 196653, 0, 0, 196654, 0, 0, 196655, 0, 0, 196656, 0, 0, 196657, 0, 0, 196658, 0, 0, 196659, 0, 0, 196660, 0, 0, 196661, 0, 0, 196662, 0, 0, 196663, 0, 0, 196664, 0, 0, 196665, 0, 0, 196666, 0, 0, 196667, 0, 0, 196668, 0, 0, 196669, 0, 0, 196670, 0, 0, 196671, 0, 0, 196672, 0, 0, 196673, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Foreground Background" type="Node2D" parent="."]
+
+[node name="Cloud2" type="Node2D" parent="Foreground Background"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Cloud" type="Sprite" parent="Foreground Background/Cloud2"]
+position = Vector2( 5424, -3468 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 11 )
+
+[node name="Cloud2" type="Sprite" parent="Foreground Background/Cloud2"]
+position = Vector2( 49888, -1096 )
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 11 )
+
+[node name="Cloud3" type="Sprite" parent="Foreground Background/Cloud2"]
+position = Vector2( 80464, -1616 )
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 11 )
+
+[node name="Cloud4" type="Sprite" parent="Foreground Background/Cloud2"]
+position = Vector2( 105356, -10716 )
+scale = Vector2( 5, 5 )
+z_index = 20
+texture = ExtResource( 11 )
+
+[node name="Boss" parent="." instance=ExtResource( 20 )]
+position = Vector2( 27284, -47 )
+
+[node name="one" type="Position2D" parent="Boss/Waypoints" index="0"]
+position = Vector2( -181.334, 169.333 )
+
+[node name="two" type="Position2D" parent="Boss/Waypoints" index="1"]
+position = Vector2( -659.11, 169.333 )
+
+[node name="three" type="Position2D" parent="Boss/Waypoints" index="2"]
+position = Vector2( -778.667, 59.5556 )
+
+[node name="four" type="Position2D" parent="Boss/Waypoints" index="3"]
+position = Vector2( -525.334, -50.2222 )
+
+[node name="five" type="Position2D" parent="Boss/Waypoints" index="4"]
+position = Vector2( -781.777, -164 )
+
+[node name="six" type="Position2D" parent="Boss/Waypoints" index="5"]
+position = Vector2( -545.333, -293.778 )
+
+[node name="seven" type="Position2D" parent="Boss/Waypoints" index="6"]
+position = Vector2( 2.22266, 1.33333 )
+
+[node name="eight" type="Position2D" parent="Boss/Waypoints" index="7"]
+position = Vector2( -51.5547, -233.333 )
+
+[node name="nine" type="Position2D" parent="Boss/Waypoints" index="8"]
+position = Vector2( -151.111, -116.444 )
+
+[node name="ten" type="Position2D" parent="Boss/Waypoints" index="9"]
+position = Vector2( -527.111, -26.6667 )
+
+[node name="eleven" type="Position2D" parent="Boss/Waypoints" index="10"]
+position = Vector2( -747.556, -159.556 )
+
+[node name="twelve" type="Position2D" parent="Boss/Waypoints" index="11"]
+position = Vector2( -747.556, 36.8889 )
+
+[node name="thirteen" type="Position2D" parent="Boss/Waypoints" index="12"]
+position = Vector2( -636.89, 123.556 )
+
+[node name="fourteen" type="Position2D" parent="Boss/Waypoints" index="13"]
+position = Vector2( -177.334, 123.556 )
+
+[node name="fifteen" type="Position2D" parent="Boss/Waypoints" index="14"]
+
+[node name="one2" type="Position2D" parent="Boss/Waypoints" index="15"]
+position = Vector2( -181.335, 169.333 )
+
+[node name="two2" type="Position2D" parent="Boss/Waypoints" index="16"]
+position = Vector2( -659.11, 169.333 )
+
+[node name="three2" type="Position2D" parent="Boss/Waypoints" index="17"]
+position = Vector2( -778.667, 59.5556 )
+
+[node name="four2" type="Position2D" parent="Boss/Waypoints" index="18"]
+position = Vector2( -525.335, -50.2222 )
+
+[node name="five2" type="Position2D" parent="Boss/Waypoints" index="19"]
+position = Vector2( -781.778, -164 )
+
+[node name="six2" type="Position2D" parent="Boss/Waypoints" index="20"]
+position = Vector2( -545.334, -293.778 )
+
+[node name="seven2" type="Position2D" parent="Boss/Waypoints" index="21"]
+position = Vector2( 2.22168, 1.33333 )
+
+[node name="eight2" type="Position2D" parent="Boss/Waypoints" index="22"]
+position = Vector2( -51.5547, -233.333 )
+
+[node name="nine2" type="Position2D" parent="Boss/Waypoints" index="23"]
+position = Vector2( -151.111, -116.444 )
+
+[node name="ten2" type="Position2D" parent="Boss/Waypoints" index="24"]
+position = Vector2( -527.111, -26.6667 )
+
+[node name="eleven2" type="Position2D" parent="Boss/Waypoints" index="25"]
+position = Vector2( -747.556, -159.556 )
+
+[node name="twelve2" type="Position2D" parent="Boss/Waypoints" index="26"]
+position = Vector2( -747.556, 36.8889 )
+
+[node name="thirteen2" type="Position2D" parent="Boss/Waypoints" index="27"]
+position = Vector2( -636.89, 123.556 )
+
+[node name="fourteen2" type="Position2D" parent="Boss/Waypoints" index="28"]
+position = Vector2( -177.335, 123.556 )
+
+[node name="fifteen2" type="Position2D" parent="Boss/Waypoints" index="29"]
+
+[node name="Portal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 27303, 331 )
+next_level = ExtResource( 30 )
+final_level = true
+
+[node name="BossSpawn" type="Position2D" parent="."]
+position = Vector2( 27284, -47 )
+scale = Vector2( 2.25, 2.25 )
+
+[node name="Death Plane" parent="." instance=ExtResource( 10 )]
+position = Vector2( 73477, 2807 )
+attack_damage = 1000000000
+
+[node name="Body" parent="Death Plane" index="1"]
+collision_mask = 65
+
+[node name="Cloud1" type="Node2D" parent="."]
+
+[node name="Cloud" type="Sprite" parent="Cloud1"]
+position = Vector2( 19859, -2689 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 29 )
+
+[node name="Drugs" parent="." instance=ExtResource( 13 )]
+position = Vector2( 512, 66 )
+speed_boost = 450.0
+
+[node name="Drugs2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4915, 464 )
+
+[node name="Drugs3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6611, 252 )
+
+[node name="Drugs4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 7677, -323 )
+
+[node name="Sniper" parent="." instance=ExtResource( 16 )]
+position = Vector2( 7571, -315 )
+
+[node name="Drugs5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 8970, -1067 )
+
+[node name="Drugs6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 9902, -2042 )
+
+[node name="Drugs7" parent="." instance=ExtResource( 13 )]
+position = Vector2( 18578, 213 )
+speed_boost = 3600.0
+
+[node name="Drugs8" parent="." instance=ExtResource( 13 )]
+position = Vector2( 25330, -1648 )
+
+[node name="Drugs9" parent="." instance=ExtResource( 13 )]
+position = Vector2( 25923, -1194 )
+
+[node name="Drugs10" parent="." instance=ExtResource( 13 )]
+position = Vector2( 24947, -420 )
+
+[node name="Platform" parent="." instance=ExtResource( 24 )]
+position = Vector2( 26050, -514 )
+
+[node name="Platform2" parent="." instance=ExtResource( 24 )]
+position = Vector2( 26088, -15 )
+
+[node name="Platform3" parent="." instance=ExtResource( 24 )]
+position = Vector2( 26942, -234 )
+
+[node name="Drugs11" parent="." instance=ExtResource( 13 )]
+position = Vector2( 26053, -616 )
+
+[node name="Drugs12" parent="." instance=ExtResource( 13 )]
+position = Vector2( 26098, -87 )
+
+[node name="Drugs13" parent="." instance=ExtResource( 13 )]
+position = Vector2( 26942, -311 )
+
+[node name="Shotgun" parent="." instance=ExtResource( 15 )]
+position = Vector2( 27557, 84 )
+
+[node name="Sniper2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 25372, 80 )
+
+[node name="Platform4" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1025, -167 )
+speed = 1600
+
+[node name="Position2D" type="Position2D" parent="Platform4/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Platform4/Waypoints" index="1"]
+position = Vector2( 0, 2032 )
+
+[node name="Platform6" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1879, -167 )
+speed = 1600
+
+[node name="Position2D" type="Position2D" parent="Platform6/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Platform6/Waypoints" index="1"]
+position = Vector2( 0, 2308 )
+
+[node name="Platform8" parent="." instance=ExtResource( 24 )]
+position = Vector2( 2743, -167 )
+speed = 1600
+
+[node name="Position2D" type="Position2D" parent="Platform8/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Platform8/Waypoints" index="1"]
+position = Vector2( 0, 2128 )
+
+[node name="Platform9" parent="." instance=ExtResource( 24 )]
+position = Vector2( 3190, 77 )
+speed = 2200
+
+[node name="Position2D" type="Position2D" parent="Platform9/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Platform9/Waypoints" index="1"]
+position = Vector2( 4256, 0 )
+
+[node name="Platform10" parent="." instance=ExtResource( 24 )]
+position = Vector2( 3190, 447 )
+speed = 2200
+
+[node name="Position2D2" type="Position2D" parent="Platform10/Waypoints" index="0"]
+position = Vector2( 3744, 0 )
+
+[node name="Position2D" type="Position2D" parent="Platform10/Waypoints" index="1"]
+
+[node name="Platform5" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1433, -167 )
+speed = 1600
+
+[node name="Position2D2" type="Position2D" parent="Platform5/Waypoints" index="0"]
+position = Vector2( 0, 2128 )
+
+[node name="Position2D" type="Position2D" parent="Platform5/Waypoints" index="1"]
+
+[node name="Platform7" parent="." instance=ExtResource( 24 )]
+position = Vector2( 2315, -167 )
+speed = 1600
+
+[node name="Position2D2" type="Position2D" parent="Platform7/Waypoints" index="0"]
+position = Vector2( 0, 2012 )
+
+[node name="Position2D" type="Position2D" parent="Platform7/Waypoints" index="1"]
+
+[node name="Platform11" parent="." instance=ExtResource( 24 )]
+position = Vector2( 17895, -2398 )
+speed = 3200
+
+[node name="Position2D" type="Position2D" parent="Platform11/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Platform11/Waypoints" index="1"]
+position = Vector2( 0, 5168 )
+
+[node name="Platform13" parent="." instance=ExtResource( 24 )]
+position = Vector2( 21114, -2302 )
+speed = 3200
+
+[node name="Position2D" type="Position2D" parent="Platform13/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Platform13/Waypoints" index="1"]
+position = Vector2( -2096, 0 )
+
+[node name="Position2D3" type="Position2D" parent="Platform13/Waypoints" index="2"]
+position = Vector2( 4724, 0 )
+
+[node name="Platform14" parent="." instance=ExtResource( 24 )]
+position = Vector2( 21665, -1951 )
+speed = 3200
+
+[node name="Position2D" type="Position2D" parent="Platform14/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Platform14/Waypoints" index="1"]
+position = Vector2( -4288, 0 )
+
+[node name="Position2D3" type="Position2D" parent="Platform14/Waypoints" index="2"]
+position = Vector2( 2592, 0 )
+
+[node name="Platform12" parent="." instance=ExtResource( 24 )]
+position = Vector2( 18225, -2398 )
+speed = 3200
+
+[node name="Position2D2" type="Position2D" parent="Platform12/Waypoints" index="0"]
+position = Vector2( 0, 5168 )
+
+[node name="Position2D" type="Position2D" parent="Platform12/Waypoints" index="1"]
+
+[node name="Skull Pink" parent="." instance=ExtResource( 28 )]
+position = Vector2( 1022, -153 )
+
+[node name="up" type="Position2D" parent="Skull Pink/Waypoints" index="0"]
+position = Vector2( -4, 58 )
+
+[node name="right" type="Position2D" parent="Skull Pink/Waypoints" index="1"]
+position = Vector2( 160, 268 )
+
+[node name="down2" type="Position2D" parent="Skull Pink/Waypoints" index="2"]
+position = Vector2( 0, 533 )
+
+[node name="left" type="Position2D" parent="Skull Pink/Waypoints" index="3"]
+position = Vector2( -269, 317 )
+
+[node name="left2" type="Position2D" parent="Skull Pink/Waypoints" index="4"]
+position = Vector2( -269, 317 )
+
+[node name="down" type="Position2D" parent="Skull Pink/Waypoints" index="5"]
+position = Vector2( 0, 533 )
+
+[node name="right2" type="Position2D" parent="Skull Pink/Waypoints" index="6"]
+position = Vector2( 160, 268 )
+
+[node name="up2" type="Position2D" parent="Skull Pink/Waypoints" index="7"]
+position = Vector2( -4, 58 )
+
+[node name="Skull Pink2" parent="." instance=ExtResource( 28 )]
+position = Vector2( 1928, -153 )
+
+[node name="up" type="Position2D" parent="Skull Pink2/Waypoints" index="0"]
+position = Vector2( -4, 58 )
+
+[node name="right" type="Position2D" parent="Skull Pink2/Waypoints" index="1"]
+position = Vector2( 160, 268 )
+
+[node name="down2" type="Position2D" parent="Skull Pink2/Waypoints" index="2"]
+position = Vector2( 0, 533 )
+
+[node name="left" type="Position2D" parent="Skull Pink2/Waypoints" index="3"]
+position = Vector2( -269, 317 )
+
+[node name="left2" type="Position2D" parent="Skull Pink2/Waypoints" index="4"]
+position = Vector2( -269, 317 )
+
+[node name="down" type="Position2D" parent="Skull Pink2/Waypoints" index="5"]
+position = Vector2( 0, 533 )
+
+[node name="right2" type="Position2D" parent="Skull Pink2/Waypoints" index="6"]
+position = Vector2( 160, 268 )
+
+[node name="up2" type="Position2D" parent="Skull Pink2/Waypoints" index="7"]
+position = Vector2( -4, 58 )
+
+[node name="Skull Pink3" parent="." instance=ExtResource( 28 )]
+position = Vector2( 2778, -153 )
+
+[node name="up" type="Position2D" parent="Skull Pink3/Waypoints" index="0"]
+position = Vector2( -4, 58 )
+
+[node name="right" type="Position2D" parent="Skull Pink3/Waypoints" index="1"]
+position = Vector2( 160, 268 )
+
+[node name="down2" type="Position2D" parent="Skull Pink3/Waypoints" index="2"]
+position = Vector2( 0, 533 )
+
+[node name="left" type="Position2D" parent="Skull Pink3/Waypoints" index="3"]
+position = Vector2( -269, 317 )
+
+[node name="left2" type="Position2D" parent="Skull Pink3/Waypoints" index="4"]
+position = Vector2( -269, 317 )
+
+[node name="down" type="Position2D" parent="Skull Pink3/Waypoints" index="5"]
+position = Vector2( 0, 533 )
+
+[node name="right2" type="Position2D" parent="Skull Pink3/Waypoints" index="6"]
+position = Vector2( 160, 268 )
+
+[node name="up2" type="Position2D" parent="Skull Pink3/Waypoints" index="7"]
+position = Vector2( -4, 58 )
+
+[node name="Skull Pink4" parent="." instance=ExtResource( 28 )]
+position = Vector2( 3296, -153 )
+
+[node name="up" type="Position2D" parent="Skull Pink4/Waypoints" index="0"]
+position = Vector2( -4, 58 )
+
+[node name="right" type="Position2D" parent="Skull Pink4/Waypoints" index="1"]
+position = Vector2( 160, 268 )
+
+[node name="down2" type="Position2D" parent="Skull Pink4/Waypoints" index="2"]
+position = Vector2( 0, 533 )
+
+[node name="left" type="Position2D" parent="Skull Pink4/Waypoints" index="3"]
+position = Vector2( -269, 317 )
+
+[node name="left2" type="Position2D" parent="Skull Pink4/Waypoints" index="4"]
+position = Vector2( -269, 317 )
+
+[node name="down" type="Position2D" parent="Skull Pink4/Waypoints" index="5"]
+position = Vector2( 0, 533 )
+
+[node name="right2" type="Position2D" parent="Skull Pink4/Waypoints" index="6"]
+position = Vector2( 160, 268 )
+
+[node name="up2" type="Position2D" parent="Skull Pink4/Waypoints" index="7"]
+position = Vector2( -4, 58 )
+
+[node name="Pinkworm" parent="." instance=ExtResource( 17 )]
+position = Vector2( 5821, 197 )
+
+[node name="Position2D" type="Position2D" parent="Pinkworm/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Pinkworm/Waypoints" index="1"]
+position = Vector2( 470, 283 )
+
+[node name="Position2D3" type="Position2D" parent="Pinkworm/Waypoints" index="2"]
+position = Vector2( -778, 283 )
+
+[node name="Position2D4" type="Position2D" parent="Pinkworm/Waypoints" index="3"]
+position = Vector2( -778, 283 )
+
+[node name="Position2D5" type="Position2D" parent="Pinkworm/Waypoints" index="4"]
+position = Vector2( 470, 283 )
+
+[node name="Position2D6" type="Position2D" parent="Pinkworm/Waypoints" index="5"]
+
+[node name="Pinkworm2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 7289, 197 )
+
+[node name="Position2D" type="Position2D" parent="Pinkworm2/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Pinkworm2/Waypoints" index="1"]
+position = Vector2( 470, 283 )
+
+[node name="Position2D3" type="Position2D" parent="Pinkworm2/Waypoints" index="2"]
+position = Vector2( -778, 283 )
+
+[node name="Position2D4" type="Position2D" parent="Pinkworm2/Waypoints" index="3"]
+position = Vector2( -778, 283 )
+
+[node name="Position2D5" type="Position2D" parent="Pinkworm2/Waypoints" index="4"]
+position = Vector2( 470, 283 )
+
+[node name="Position2D6" type="Position2D" parent="Pinkworm2/Waypoints" index="5"]
+
+[node name="Pinkworm3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 12820, -1934 )
+
+[node name="Position2D" type="Position2D" parent="Pinkworm3/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Pinkworm3/Waypoints" index="1"]
+position = Vector2( 470, 283 )
+
+[node name="Position2D3" type="Position2D" parent="Pinkworm3/Waypoints" index="2"]
+position = Vector2( -778, 283 )
+
+[node name="Position2D4" type="Position2D" parent="Pinkworm3/Waypoints" index="3"]
+position = Vector2( -778, 283 )
+
+[node name="Position2D5" type="Position2D" parent="Pinkworm3/Waypoints" index="4"]
+position = Vector2( 470, 283 )
+
+[node name="Position2D6" type="Position2D" parent="Pinkworm3/Waypoints" index="5"]
+
+[node name="Pinkworm4" parent="." instance=ExtResource( 17 )]
+position = Vector2( 15945, -1934 )
+speed = 530
+
+[node name="Position2D" type="Position2D" parent="Pinkworm4/Waypoints" index="0"]
+position = Vector2( -96, -71 )
+
+[node name="Position2D2" type="Position2D" parent="Pinkworm4/Waypoints" index="1"]
+position = Vector2( 309, 283 )
+
+[node name="Position2D3" type="Position2D" parent="Pinkworm4/Waypoints" index="2"]
+position = Vector2( -511, 283 )
+
+[node name="Position2D4" type="Position2D" parent="Pinkworm4/Waypoints" index="3"]
+position = Vector2( -511, 283 )
+
+[node name="Position2D5" type="Position2D" parent="Pinkworm4/Waypoints" index="4"]
+position = Vector2( 309, 283 )
+
+[node name="Position2D6" type="Position2D" parent="Pinkworm4/Waypoints" index="5"]
+position = Vector2( -96, -71 )
+
+[node name="Spike Ball" parent="." instance=ExtResource( 21 )]
+position = Vector2( 14348, -2678 )
+speed = 16500
+
+[node name="Position2D" type="Position2D" parent="Spike Ball/Waypoints" index="0"]
+position = Vector2( -32015.4, 0 )
+
+[node name="Position2D2" type="Position2D" parent="Spike Ball/Waypoints" index="1"]
+position = Vector2( -32015.4, 7486.92 )
+
+[node name="Position2D3" type="Position2D" parent="Spike Ball/Waypoints" index="2"]
+position = Vector2( 21515.4, 7486.92 )
+
+[node name="Position2D4" type="Position2D" parent="Spike Ball/Waypoints" index="3"]
+position = Vector2( 21515.4, 253.844 )
+
+[node name="Spike Ball3" parent="." instance=ExtResource( 21 )]
+position = Vector2( 14348, -1763 )
+speed = 11000
+
+[node name="Position2D" type="Position2D" parent="Spike Ball3/Waypoints" index="0"]
+position = Vector2( -5646.16, 84.6152 )
+
+[node name="Position2D2" type="Position2D" parent="Spike Ball3/Waypoints" index="1"]
+position = Vector2( -5830.77, 3315.38 )
+
+[node name="Position2D3" type="Position2D" parent="Spike Ball3/Waypoints" index="2"]
+position = Vector2( -4376.92, 4653.85 )
+
+[node name="Position2D4" type="Position2D" parent="Spike Ball3/Waypoints" index="3"]
+position = Vector2( 3723.08, 4561.54 )
+
+[node name="Position2D5" type="Position2D" parent="Spike Ball3/Waypoints" index="4"]
+position = Vector2( 5192.3, 3015.38 )
+
+[node name="Position2D6" type="Position2D" parent="Spike Ball3/Waypoints" index="5"]
+position = Vector2( 5146.16, 130.77 )
+
+[node name="Spike Ball2" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9335, -2017 )
+speed = 11000
+
+[node name="Position2D" type="Position2D" parent="Spike Ball2/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Spike Ball2/Waypoints" index="1"]
+position = Vector2( 0, 5223.08 )
+
+[node name="Position2D3" type="Position2D" parent="Spike Ball2/Waypoints" index="2"]
+position = Vector2( -3661.54, 5684.61 )
+
+[node name="Position2D4" type="Position2D" parent="Spike Ball2/Waypoints" index="3"]
+position = Vector2( -2076.92, 9715.39 )
+
+[node name="Position2D5" type="Position2D" parent="Spike Ball2/Waypoints" index="4"]
+position = Vector2( 584.617, 9153.84 )
+
+[node name="Position2D6" type="Position2D" parent="Spike Ball2/Waypoints" index="5"]
+position = Vector2( -246.156, 12084.6 )
+
+[node name="Position2D7" type="Position2D" parent="Spike Ball2/Waypoints" index="6"]
+position = Vector2( -1561.54, 13400 )
+
+[node name="Position2D8" type="Position2D" parent="Spike Ball2/Waypoints" index="7"]
+position = Vector2( -9523.08, 13400 )
+
+[node name="Position2D9" type="Position2D" parent="Spike Ball2/Waypoints" index="8"]
+position = Vector2( -9523.08, -4761.54 )
+
+[node name="Position2D10" type="Position2D" parent="Spike Ball2/Waypoints" index="9"]
+position = Vector2( 0, -4761.54 )
+
+[node name="Spike Ball4" parent="." instance=ExtResource( 21 )]
+position = Vector2( 18945, -2084 )
+speed = 22000
+
+[node name="Position2D" type="Position2D" parent="Spike Ball4/Waypoints" index="0"]
+position = Vector2( -7876.94, -4307.69 )
+
+[node name="Position2D2" type="Position2D" parent="Spike Ball4/Waypoints" index="1"]
+position = Vector2( -7876.94, 13753.8 )
+
+[node name="Position2D3" type="Position2D" parent="Spike Ball4/Waypoints" index="2"]
+position = Vector2( -1784.63, 17138.5 )
+
+[node name="Position2D4" type="Position2D" parent="Spike Ball4/Waypoints" index="3"]
+position = Vector2( -699.984, -4307.69 )
+
+[node name="Spike Ball5" parent="." instance=ExtResource( 21 )]
+position = Vector2( 23992, -1713 )
+scale = Vector2( 0.06, 0.06 )
+speed = 44000
+
+[node name="one" type="Position2D" parent="Spike Ball5/Waypoints" index="0"]
+position = Vector2( 55016.6, 0 )
+
+[node name="two" type="Position2D" parent="Spike Ball5/Waypoints" index="1"]
+position = Vector2( 53666.6, 11250 )
+
+[node name="three" type="Position2D" parent="Spike Ball5/Waypoints" index="2"]
+position = Vector2( -12616.7, 11250 )
+
+[node name="four" type="Position2D" parent="Spike Ball5/Waypoints" index="3"]
+position = Vector2( -7700.06, 22183.3 )
+
+[node name="Ooze Black" parent="." instance=ExtResource( 18 )]
+position = Vector2( 17184, -1308 )
+
+[node name="Position2D" type="Position2D" parent="Ooze Black/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Ooze Black/Waypoints" index="1"]
+position = Vector2( -181.598, 0 )
+
+[node name="Ooze Black2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 16778, -398 )
+
+[node name="Position2D" type="Position2D" parent="Ooze Black2/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Ooze Black2/Waypoints" index="1"]
+position = Vector2( -181.598, 0 )
+
+[node name="White Scorpion" parent="." instance=ExtResource( 19 )]
+position = Vector2( 19747, -2314 )
+
+[node name="Position2D" type="Position2D" parent="White Scorpion/Waypoints" index="0"]
+position = Vector2( -589, 131 )
+
+[node name="Position2D2" type="Position2D" parent="White Scorpion/Waypoints" index="1"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D3" type="Position2D" parent="White Scorpion/Waypoints" index="2"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D4" type="Position2D" parent="White Scorpion/Waypoints" index="3"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D5" type="Position2D" parent="White Scorpion/Waypoints" index="4"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D6" type="Position2D" parent="White Scorpion/Waypoints" index="5"]
+position = Vector2( -589, 131 )
+
+[node name="White Scorpion2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 24698, -1825 )
+
+[node name="Position2D" type="Position2D" parent="White Scorpion2/Waypoints" index="0"]
+position = Vector2( -589, 131 )
+
+[node name="Position2D2" type="Position2D" parent="White Scorpion2/Waypoints" index="1"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D3" type="Position2D" parent="White Scorpion2/Waypoints" index="2"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D4" type="Position2D" parent="White Scorpion2/Waypoints" index="3"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D5" type="Position2D" parent="White Scorpion2/Waypoints" index="4"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D6" type="Position2D" parent="White Scorpion2/Waypoints" index="5"]
+position = Vector2( -589, 131 )
+
+[node name="White Scorpion6" parent="." instance=ExtResource( 19 )]
+position = Vector2( 23918, -500 )
+
+[node name="Position2D" type="Position2D" parent="White Scorpion6/Waypoints" index="0"]
+position = Vector2( -589, 131 )
+
+[node name="Position2D2" type="Position2D" parent="White Scorpion6/Waypoints" index="1"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D3" type="Position2D" parent="White Scorpion6/Waypoints" index="2"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D4" type="Position2D" parent="White Scorpion6/Waypoints" index="3"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D5" type="Position2D" parent="White Scorpion6/Waypoints" index="4"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D6" type="Position2D" parent="White Scorpion6/Waypoints" index="5"]
+position = Vector2( -589, 131 )
+
+[node name="White Scorpion3" parent="." instance=ExtResource( 19 )]
+position = Vector2( 26216, -1825 )
+
+[node name="Position2D" type="Position2D" parent="White Scorpion3/Waypoints" index="0"]
+position = Vector2( -589, 131 )
+
+[node name="Position2D2" type="Position2D" parent="White Scorpion3/Waypoints" index="1"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D3" type="Position2D" parent="White Scorpion3/Waypoints" index="2"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D4" type="Position2D" parent="White Scorpion3/Waypoints" index="3"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D5" type="Position2D" parent="White Scorpion3/Waypoints" index="4"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D6" type="Position2D" parent="White Scorpion3/Waypoints" index="5"]
+position = Vector2( -589, 131 )
+
+[node name="White Scorpion4" parent="." instance=ExtResource( 19 )]
+position = Vector2( 24698, -1155 )
+
+[node name="Position2D" type="Position2D" parent="White Scorpion4/Waypoints" index="0"]
+position = Vector2( -589, 131 )
+
+[node name="Position2D2" type="Position2D" parent="White Scorpion4/Waypoints" index="1"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D3" type="Position2D" parent="White Scorpion4/Waypoints" index="2"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D4" type="Position2D" parent="White Scorpion4/Waypoints" index="3"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D5" type="Position2D" parent="White Scorpion4/Waypoints" index="4"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D6" type="Position2D" parent="White Scorpion4/Waypoints" index="5"]
+position = Vector2( -589, 131 )
+
+[node name="White Scorpion5" parent="." instance=ExtResource( 19 )]
+position = Vector2( 26216, -1155 )
+
+[node name="Position2D" type="Position2D" parent="White Scorpion5/Waypoints" index="0"]
+position = Vector2( -589, 131 )
+
+[node name="Position2D2" type="Position2D" parent="White Scorpion5/Waypoints" index="1"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D3" type="Position2D" parent="White Scorpion5/Waypoints" index="2"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D4" type="Position2D" parent="White Scorpion5/Waypoints" index="3"]
+position = Vector2( 57, -125 )
+
+[node name="Position2D5" type="Position2D" parent="White Scorpion5/Waypoints" index="4"]
+position = Vector2( 551, 131 )
+
+[node name="Position2D6" type="Position2D" parent="White Scorpion5/Waypoints" index="5"]
+position = Vector2( -589, 131 )
+
+[node name="Skull Pink5" parent="." instance=ExtResource( 28 )]
+position = Vector2( 20657, -2424 )
+
+[node name="Position2D" type="Position2D" parent="Skull Pink5/Waypoints" index="0"]
+position = Vector2( 1657, -86 )
+
+[node name="Position2D2" type="Position2D" parent="Skull Pink5/Waypoints" index="1"]
+position = Vector2( 46, 336 )
+
+[node name="Position2D3" type="Position2D" parent="Skull Pink5/Waypoints" index="2"]
+position = Vector2( 1631, 310 )
+
+[node name="Position2D4" type="Position2D" parent="Skull Pink5/Waypoints" index="3"]
+position = Vector2( 47, 348 )
+
+[node name="Position2D5" type="Position2D" parent="Skull Pink5/Waypoints" index="4"]
+position = Vector2( 47, 348 )
+
+[node name="Position2D6" type="Position2D" parent="Skull Pink5/Waypoints" index="5"]
+position = Vector2( 1631, 310 )
+
+[node name="Position2D7" type="Position2D" parent="Skull Pink5/Waypoints" index="6"]
+position = Vector2( 46, 336 )
+
+[node name="Position2D8" type="Position2D" parent="Skull Pink5/Waypoints" index="7"]
+position = Vector2( 1657, -86 )
+
+[node name="Skull Pink6" parent="." instance=ExtResource( 28 )]
+position = Vector2( 20657, -2424 )
+
+[node name="Position2D" type="Position2D" parent="Skull Pink6/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Skull Pink6/Waypoints" index="1"]
+position = Vector2( 1548, 412 )
+
+[node name="Position2D3" type="Position2D" parent="Skull Pink6/Waypoints" index="2"]
+position = Vector2( 1669, 2 )
+
+[node name="Position2D4" type="Position2D" parent="Skull Pink6/Waypoints" index="3"]
+position = Vector2( -77, 567 )
+
+[node name="Position2D5" type="Position2D" parent="Skull Pink6/Waypoints" index="4"]
+position = Vector2( -77, 567 )
+
+[node name="Position2D6" type="Position2D" parent="Skull Pink6/Waypoints" index="5"]
+position = Vector2( 1669, 2 )
+
+[node name="Position2D7" type="Position2D" parent="Skull Pink6/Waypoints" index="6"]
+position = Vector2( 1548, 412 )
+
+[node name="Position2D8" type="Position2D" parent="Skull Pink6/Waypoints" index="7"]
+
+[node name="Label" parent="." instance=ExtResource( 23 )]
+margin_left = 761.0
+margin_top = -345.0
+margin_right = 1273.0
+margin_bottom = -232.0
+monster_name = "Skull Pink"
+
+[node name="Label2" parent="." instance=ExtResource( 23 )]
+margin_left = 1666.0
+margin_top = -345.0
+margin_right = 2178.0
+margin_bottom = -232.0
+monster_name = "Skull Pink2"
+
+[node name="Label3" parent="." instance=ExtResource( 23 )]
+margin_left = 2520.0
+margin_top = -345.0
+margin_right = 3032.0
+margin_bottom = -232.0
+monster_name = "Skull Pink3"
+
+[node name="Label4" parent="." instance=ExtResource( 23 )]
+margin_left = 3037.0
+margin_top = -345.0
+margin_right = 3549.0
+margin_bottom = -232.0
+monster_name = "Skull Pink4"
+
+[node name="Label5" parent="." instance=ExtResource( 23 )]
+margin_left = 5444.0
+margin_top = 252.0
+margin_right = 5956.0
+margin_bottom = 365.0
+monster_name = "Pinkworm"
+
+[node name="Label6" parent="." instance=ExtResource( 23 )]
+margin_left = 6954.0
+margin_top = 252.0
+margin_right = 7466.0
+margin_bottom = 365.0
+monster_name = "Pinkworm2"
+
+[node name="Label7" parent="." instance=ExtResource( 23 )]
+margin_left = 12447.0
+margin_top = -1865.0
+margin_right = 12959.0
+margin_bottom = -1752.0
+monster_name = "Pinkworm3"
+
+[node name="Label8" parent="." instance=ExtResource( 23 )]
+margin_left = 15597.0
+margin_top = -1865.0
+margin_right = 16109.0
+margin_bottom = -1752.0
+monster_name = "Pinkworm4"
+
+[node name="Label9" parent="." instance=ExtResource( 23 )]
+margin_left = 16843.0
+margin_top = -1512.0
+margin_right = 17355.0
+margin_bottom = -1399.0
+monster_name = "Ooze Black"
+
+[node name="Label10" parent="." instance=ExtResource( 23 )]
+margin_left = 16484.0
+margin_top = -617.0
+margin_right = 16996.0
+margin_bottom = -504.0
+monster_name = "Ooze Black2"
+
+[node name="Label11" parent="." instance=ExtResource( 23 )]
+margin_left = 26991.0
+margin_top = -180.0
+margin_right = 27503.0
+margin_bottom = -67.0
+monster_name = "Boss"
+
+[node name="AK" parent="." instance=ExtResource( 14 )]
+position = Vector2( 309, 88 )
+
+[node name="Floor Spike" parent="." instance=ExtResource( 12 )]
+position = Vector2( 16926, 233 )
+
+[node name="Floor Spike2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 17049, 233 )
+
+[node name="Floor Spike3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 17174, 233 )
+
+[node name="Floor Spike4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 17302, 233 )
+
+[node name="Floor Spike5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 17425, 233 )
+
+[node name="Music Start" parent="." instance=ExtResource( 31 )]
+music_id = 3
+
+[editable path="Player"]
+[editable path="Giant Spike Wall"]
+[editable path="Boss"]
+[editable path="Death Plane"]
+[editable path="Platform4"]
+[editable path="Platform6"]
+[editable path="Platform8"]
+[editable path="Platform9"]
+[editable path="Platform10"]
+[editable path="Platform5"]
+[editable path="Platform7"]
+[editable path="Platform11"]
+[editable path="Platform13"]
+[editable path="Platform14"]
+[editable path="Platform12"]
+[editable path="Skull Pink"]
+[editable path="Skull Pink2"]
+[editable path="Skull Pink3"]
+[editable path="Skull Pink4"]
+[editable path="Pinkworm"]
+[editable path="Pinkworm2"]
+[editable path="Pinkworm3"]
+[editable path="Pinkworm4"]
+[editable path="Spike Ball"]
+[editable path="Spike Ball3"]
+[editable path="Spike Ball2"]
+[editable path="Spike Ball4"]
+[editable path="Spike Ball5"]
+[editable path="Ooze Black"]
+[editable path="Ooze Black2"]
+[editable path="White Scorpion"]
+[editable path="White Scorpion2"]
+[editable path="White Scorpion6"]
+[editable path="White Scorpion3"]
+[editable path="White Scorpion4"]
+[editable path="White Scorpion5"]
+[editable path="Skull Pink5"]
+[editable path="Skull Pink6"]

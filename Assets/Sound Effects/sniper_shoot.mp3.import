@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sniper_shoot.mp3-f3bd10747bee1fccfff5ccdf62afe7e8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/sniper_shoot.mp3"
+dest_files=[ "res://.import/sniper_shoot.mp3-f3bd10747bee1fccfff5ccdf62afe7e8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

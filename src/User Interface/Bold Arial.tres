@@ -3,5 +3,9 @@
 [ext_resource path="res://Assets/Font/arialbd.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 80
+size = 100
+outline_size = 1
+outline_color = Color( 1, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 1 )

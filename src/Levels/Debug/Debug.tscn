@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Objects/Shotgun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Objects/AK.tscn" type="PackedScene" id=2]
@@ -10,39 +10,6 @@
 [ext_resource path="res://src/Objects/Platform.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/User Interface/Arial.tres" type="DynamicFont" id=10]
 [ext_resource path="res://src/Objects/OldTilesTileMap.tres" type="TileSet" id=11]
-
-[sub_resource type="Animation" id=6]
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -1054, -9 ), Vector2( -575, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "platform"
-length = 2.0
-loop = true
 
 [node name="Level" type="Node2D"]
 __meta__ = {
@@ -71,17 +38,14 @@ scale = Vector2( 0.3, 0.3 )
 [node name="HealthDisplay" parent="." instance=ExtResource( 3 )]
 
 [node name="Platform2" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1054, -9 )
+position = Vector2( -1192, -69 )
 
-[node name="AnimationPlayer" parent="Platform2" index="2"]
-autoplay = "RESET"
-anims/RESET = SubResource( 6 )
-anims/platform = SubResource( 7 )
+[node name="Position2D" type="Position2D" parent="Platform2/Waypoints" index="0"]
+
+[node name="Position2D2" type="Position2D" parent="Platform2/Waypoints" index="1"]
+position = Vector2( -1904, 0 )
 
 [node name="Platform" parent="." instance=ExtResource( 9 )]
-
-[node name="AnimationPlayer" parent="Platform" index="2"]
-autoplay = "RESET"
 
 [node name="Shotgun" parent="." instance=ExtResource( 1 )]
 position = Vector2( -660, 117 )
@@ -116,6 +80,9 @@ position = Vector2( 238, 0 )
 
 [node name="Position2D3" type="Position2D" parent="Ooze Green/Waypoints" index="2"]
 position = Vector2( 238, -559 )
+
+[node name="Drugs2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1115, 328 )
 
 [connection signal="drug_time" from="Drugs" to="Player" method="_on_drug_time"]
 

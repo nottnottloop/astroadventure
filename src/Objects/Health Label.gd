@@ -7,7 +7,7 @@ var path
 
 func _ready():
 	path = "/root/Level/" + monster_name
-	if !has_node(path):
+	if !has_node(path) or monster_name == "":
 		queue_free()
 		return
 	label.text = LABEL_TEXT % get_node(path).health

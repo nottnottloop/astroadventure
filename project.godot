@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Astro Adventure"
-run/main_scene="res://src/Levels/Tutorial 1.tscn"
+run/main_scene="res://src/Levels/Main Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -36,6 +36,8 @@ PlayerData="*res://src/Autoload/PlayerData.tscn"
 
 [display]
 
+window/size/width=1920
+window/size/height=1080
 window/size/borderless=true
 window/size/fullscreen=true
 
@@ -88,6 +90,16 @@ space={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
+mute_music={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":77,"unicode":0,"echo":false,"script":null)
+ ]
+}
+mute_sfx={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":78,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -99,6 +111,8 @@ space={
 2d_physics/layer_6="bullets"
 2d_physics/layer_7="guns"
 2d_physics/layer_8="spikes"
+2d_physics/layer_9="platforms"
+2d_physics/layer_20="giantwall"
 
 [mono]
 

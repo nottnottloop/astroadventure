@@ -5,20 +5,26 @@ var ShotgunBullet = preload("res://src/Objects/Shotgun Bullet.tscn")
 var SniperBullet = preload("res://src/Objects/Sniper Bullet.tscn")
 var currentBullet
 
-var AK = preload("res://src/Objects/AK.tscn")
-var Shotgun = preload("res://src/Objects/Shotgun.tscn")
-var Sniper = preload("res://src/Objects/Sniper.tscn")
-
-const SPEED_BOOST = Vector2(800.0, 0.0)
+onready var AK = preload("res://src/Objects/AK.tscn")
+onready var Shotgun = preload("res://src/Objects/Shotgun.tscn")
+onready var Sniper = preload("res://src/Objects/Sniper.tscn")
+onready var ak_shoot = preload("res://src/Sounds/SFX/AK Shoot.tscn")
+onready var shotgun_shoot = preload("res://src/Sounds/SFX/Shotgun Shoot.tscn")
+onready var sniper_shoot = preload("res://src/Sounds/SFX/Sniper Shoot.tscn")
 
 onready var _collision_box = $CollisionShape2D3
 onready var _animated_sprite = $AnimatedSprite
 onready var _gun = $Gun
 onready var _jumpcast = $JumpCast
+onready var _platcast = $PlatCast
 onready var _gun_eject_left = $GunEjectLeft
 onready var _gun_eject_right = $GunEjectRight
 onready var _gun_shoot_left = $GunShootLeft
 onready var _gun_shoot_right = $GunShootRight
+
+onready var jet = $Jet
+onready var gun_pickup = $"Pickup Gun"
+
 
 const HANG_TIME = 2
 var _jump_timer = 0.0
@@ -43,18 +49,20 @@ func _ready():
 		speed.y = 3000.0
 		
 	PlayerData.connect("gun_picked_up", self, "on_gun_pickup")
+	PlayerData.connect("drug_time", self, "on_drug_time")
 
 func _physics_process(_delta):
 #	print(velocity)
 #	print(_jump_timer)
 #	print("Jump: " + str(_can_jump))
 #	print("Moonwalk: " + str(_can_moonwalk))
+#	print("Gravity: " + str(_gravity_enabled))
 	_time_since_start += _delta
 	_time_since_last_shot += _delta
 	if _boosting:
 		_boost_timer += _delta
 		if _boost_timer >= 3:
-			speed -= SPEED_BOOST
+			speed -= PlayerData.speed_boost
 			_boost_timer = 0
 			_boosting = false
 	
@@ -62,9 +70,15 @@ func _physics_process(_delta):
 	if _jumpcast.is_colliding() and _time_since_start > 0.2 or jump_forever_cheat:
 		_can_jump = true
 		_can_moonwalk = true
+	if _platcast.is_colliding():
+		_can_moonwalk = false
 	var direction: = get_direction()
 	velocity = calculate_move_velocity(velocity, direction, speed)
-	velocity.y = move_and_slide(velocity, FLOOR_NORMAL).y
+	var result = move_and_slide(velocity, FLOOR_NORMAL)
+	# i have to do this shit otherwise the player gets stuck on enemies...
+	if result == Vector2(0.0, 0.0) and direction.x != 0.0:
+		position.x += direction.x * 5
+	velocity.y = result.y
 	if Input.is_action_just_pressed("shoot"):
 		shoot_gun()
 #!!!!!!!!!!CREDIT YOUR SOURCES
@@ -75,7 +89,7 @@ func _physics_process(_delta):
 		velocity += Vector2.UP * (-gravity / 2.0) * _delta
 		_jump_timer += _delta
 	#going down
-	if velocity.y >= 0:
+	if velocity.y >= 0 or _jump_timer > HANG_TIME:
 		_jump_timer = 0
 		_gravity_enabled = true
 		velocity += Vector2.DOWN * gravity * (FALL_MULTIPLIER - 1) * _delta
@@ -96,9 +110,12 @@ func _physics_process(_delta):
 	if is_on_floor() and direction.x == 0:
 		_animated_sprite.play("stay")
 	if is_on_floor():
+		jet.stop()
 		_jump_timer = 0.0
 
 func eject_gun():
+	if PlayerData.sfx_enabled:
+		gun_pickup.play()
 	_time_since_last_shot = 100
 	var gun_to_eject
 	if PlayerData.previous_gun == "":
@@ -131,12 +148,20 @@ func shoot_gun():
 		new_bullet.get_node("Sprite").set_flip_h(true)
 	else:
 		new_bullet.global_position = _gun_shoot_right.global_position
+	var shoot
 	if PlayerData.gun == "AK":
+		shoot = ak_shoot.instance()
 		new_bullet.global_position += Vector2(0, -9)
-	if PlayerData.gun == "Shotgun":
+	elif PlayerData.gun == "Shotgun":
+		shoot = shotgun_shoot.instance()
 		new_bullet.global_position += Vector2(0, -4)
+	else:
+		shoot = sniper_shoot.instance()
+	if PlayerData.sfx_enabled:
+		get_node("/root/Level").add_child(shoot)
 	
 func on_gun_pickup():
+	
 	eject_gun()
 	if PlayerData.gun == "AK":
 		_gun.texture = load("res://Assets/2DWeaponPack/Sprites/AK-47/ak-47.png")
@@ -149,15 +174,17 @@ func on_gun_pickup():
 		currentBullet = SniperBullet
 	
 		
-func _on_drug_time():
+func on_drug_time():
 	_boosting = true
-	speed += SPEED_BOOST
+	speed += PlayerData.speed_boost
 	
 func get_direction() -> Vector2:
 	var jump_dir = 0.0
 	if Input.is_action_pressed("jump") and _can_jump or velocity.y < 0 and _can_moonwalk:
 		jump_dir = -1.0
 		if Input.is_action_pressed("jump"):
+			if PlayerData.sfx_enabled:
+				jet.play()
 			_can_jump = false
 			_can_moonwalk = false
 		else:
@@ -169,8 +196,8 @@ func get_direction() -> Vector2:
 	
 func calculate_move_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vector2) -> Vector2:
 	var new_velocity: = linear_velocity
-	new_velocity.x = speed.x * direction.x
-	if direction.y == -1.0:
+	new_velocity.x = ((speed.x + PlayerData.ahh_boost_speed) * direction.x)
+	if direction.y == -1.0 and _jump_timer < HANG_TIME:
 		new_velocity.y = calculate_jump_velocity()
 		_gravity_enabled = false
 	if _gravity_enabled:
@@ -179,3 +206,14 @@ func calculate_move_velocity(linear_velocity: Vector2, direction: Vector2, speed
 
 func calculate_jump_velocity():
 	return (speed.y * 0.75) * -1.0
+
+#otherwise the enemy sticks to the player?
+func _on_EnemyCollider_body_entered(body):
+	if body.name == "EnemyBody":
+		#print("asssssssss")
+		if get_direction().x == 0.0:
+			return
+		if get_direction().x == 1.0:
+			self.position.x += 3.0
+		if get_direction().x == -1.0:
+			self.position.x += -3.0

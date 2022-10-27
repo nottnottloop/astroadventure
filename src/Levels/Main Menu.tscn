@@ -1,0 +1,420 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Assets/Background/start2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Background/end.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Background/section.png" type="Texture" id=3]
+[ext_resource path="res://src/Levels/Menu Camera Script.gd" type="Script" id=4]
+[ext_resource path="res://src/User Interface/NES Font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://src/Sounds/Music/Opening.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Sounds/Music/Title.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Astronaut/jet1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/2DWeaponPack/Sprites/AK-47/ak-47offset.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Astronaut/jet3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Astronaut/jet2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/2DWeaponPack/Sprites/AK-47/ak-47.png" type="Texture" id=12]
+[ext_resource path="res://src/User Interface/ButtonTheme.tres" type="Theme" id=13]
+[ext_resource path="res://src/User Interface/NES Font Small.tres" type="DynamicFont" id=14]
+[ext_resource path="res://src/User Interface/NES Font Less Small.tres" type="DynamicFont" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 344, 283 )
+current = true
+script = ExtResource( 4 )
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+margin_left = -1718.0
+margin_top = -6894.0
+margin_right = 2960.0
+margin_bottom = -1297.0
+color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background3" type="ColorRect" parent="."]
+margin_left = -2401.0
+margin_top = -8674.0
+margin_right = -188.0
+margin_bottom = 751.0
+color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background4" type="ColorRect" parent="."]
+margin_left = 851.0
+margin_top = -8676.0
+margin_right = 3064.0
+margin_bottom = 751.0
+color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background5" type="ColorRect" parent="."]
+margin_left = -672.0
+margin_top = -7362.0
+margin_right = 1541.0
+margin_bottom = -4303.0
+color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+
+[node name="End" type="Sprite" parent="."]
+position = Vector2( 339, -4466 )
+scale = Vector2( 4, 4 )
+z_index = 20
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="Background2" type="ColorRect" parent="TextLayer"]
+margin_left = -824.0
+margin_top = 576.0
+margin_right = 2354.0
+margin_bottom = 1185.0
+color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+
+[node name="1" type="Label" parent="TextLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -636.0
+margin_top = 633.0
+margin_right = -636.0
+margin_bottom = 633.0
+custom_fonts/font = ExtResource( 5 )
+text = "in the year of 21xx
+a pilot named astro"
+align = 1
+
+[node name="2" type="Label" parent="TextLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -636.0
+margin_top = 633.0
+margin_right = -636.0
+margin_bottom = 633.0
+custom_fonts/font = ExtResource( 5 )
+text = "joined the space force.
+the u.s. commissioned astro"
+align = 1
+
+[node name="3" type="Label" parent="TextLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -636.0
+margin_top = 633.0
+margin_right = -636.0
+margin_bottom = 633.0
+custom_fonts/font = ExtResource( 5 )
+text = "to stop the evil desires
+of cerberus in space"
+align = 1
+
+[node name="4" type="Label" parent="TextLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -636.0
+margin_top = 633.0
+margin_right = -636.0
+margin_bottom = 633.0
+custom_fonts/font = ExtResource( 5 )
+text = "however, knowing the threat,
+cerberus created many"
+align = 1
+
+[node name="5" type="Label" parent="TextLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -636.0
+margin_top = 633.0
+margin_right = -636.0
+margin_bottom = 633.0
+custom_fonts/font = ExtResource( 5 )
+text = "of their own minions
+to counter astro."
+align = 1
+
+[node name="empty" type="Label" parent="TextLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -636.0
+margin_top = 633.0
+margin_right = -636.0
+margin_bottom = 633.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="Sections" type="Node2D" parent="."]
+z_index = 20
+
+[node name="Start2" type="Sprite" parent="Sections"]
+position = Vector2( 641, -614 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start14" type="Sprite" parent="Sections"]
+position = Vector2( 641, -318 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start15" type="Sprite" parent="Sections"]
+position = Vector2( 641, -22 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start16" type="Sprite" parent="Sections"]
+position = Vector2( 641, 274 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start17" type="Sprite" parent="Sections"]
+position = Vector2( 641, 570 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start3" type="Sprite" parent="Sections"]
+position = Vector2( 641, -910 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start4" type="Sprite" parent="Sections"]
+position = Vector2( 641, -1206 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start5" type="Sprite" parent="Sections"]
+position = Vector2( 641, -1502 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start6" type="Sprite" parent="Sections"]
+position = Vector2( 641, -1798 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start7" type="Sprite" parent="Sections"]
+position = Vector2( 641, -2094 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start8" type="Sprite" parent="Sections"]
+position = Vector2( 641, -2390 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start9" type="Sprite" parent="Sections"]
+position = Vector2( 641, -2686 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start10" type="Sprite" parent="Sections"]
+position = Vector2( 641, -2982 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start11" type="Sprite" parent="Sections"]
+position = Vector2( 641, -3278 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start12" type="Sprite" parent="Sections"]
+position = Vector2( 641, -3574 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start13" type="Sprite" parent="Sections"]
+position = Vector2( 641, -3870 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Astro, Our Hero" type="AnimatedSprite" parent="."]
+position = Vector2( 638, -4447 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 20
+frames = SubResource( 1 )
+frame = 1
+playing = true
+flip_h = true
+
+[node name="Ak-47" type="AnimatedSprite" parent="Astro, Our Hero"]
+position = Vector2( -104, 60 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+flip_h = true
+
+[node name="Parallax Background" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax Background"]
+position = Vector2( 973, -1628 )
+motion_scale = Vector2( 0, 0.22 )
+motion_offset = Vector2( -959.683, -275 )
+
+[node name="Base" type="Sprite" parent="Parallax Background/ParallaxLayer"]
+position = Vector2( -90, -64 )
+scale = Vector2( 4, 3.5 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Menu" type="Control" parent="."]
+margin_left = -242.0
+margin_top = -4805.0
+margin_right = -202.0
+margin_bottom = -4765.0
+
+[node name="Credits" type="CanvasLayer" parent="Menu"]
+
+[node name="CreditsText" type="Label" parent="Menu/Credits"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -793.0
+margin_top = 48.0
+margin_right = 398.0
+margin_bottom = 590.0
+custom_fonts/font = ExtResource( 15 )
+text = "original game
+by lionellegendz
+
+faithful remake
+by nottnott"
+align = 1
+
+[node name="Back" type="Button" parent="Menu/Credits"]
+margin_left = 217.0
+margin_top = 802.0
+margin_right = 1040.0
+margin_bottom = 967.0
+theme = ExtResource( 13 )
+text = "BACK"
+
+[node name="Menu" type="CanvasLayer" parent="Menu"]
+
+[node name="Title" type="Label" parent="Menu/Menu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -793.0
+margin_top = 56.0
+margin_right = 154.0
+margin_bottom = 389.0
+custom_fonts/font = ExtResource( 14 )
+text = "ASTRO
+ADVENTURE"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Menu"]
+margin_left = 383.0
+margin_top = 466.0
+margin_right = 1206.0
+margin_bottom = 1336.0
+rect_scale = Vector2( 0.6, 0.6 )
+theme = ExtResource( 13 )
+custom_constants/separation = 70
+
+[node name="Start" type="Button" parent="Menu/Menu/VBoxContainer"]
+margin_right = 837.0
+margin_bottom = 165.0
+theme = ExtResource( 13 )
+text = "START"
+
+[node name="Tutorial" type="Button" parent="Menu/Menu/VBoxContainer"]
+margin_top = 235.0
+margin_right = 837.0
+margin_bottom = 400.0
+theme = ExtResource( 13 )
+text = "TRAINING"
+
+[node name="Credits" type="Button" parent="Menu/Menu/VBoxContainer"]
+margin_top = 470.0
+margin_right = 837.0
+margin_bottom = 635.0
+theme = ExtResource( 13 )
+text = "CREDITS"
+
+[node name="Quit" type="Button" parent="Menu/Menu/VBoxContainer"]
+margin_top = 705.0
+margin_right = 837.0
+margin_bottom = 870.0
+theme = ExtResource( 13 )
+text = "QUIT"
+
+[node name="Opening" parent="." instance=ExtResource( 6 )]
+
+[node name="Title" parent="." instance=ExtResource( 7 )]

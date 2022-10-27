@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Pixel Monster Pack/64x64 monsters/cerberus-black.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 34.8, 33.3 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 27, 27 )
+
+[node name="Black3headwolf" instance=ExtResource( 1 )]
+scale = Vector2( 1.25, 1.25 )
+speed = 260
+health = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Hitbox" index="0"]
+position = Vector2( 0.400009, -1.09999 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="Body" index="1"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" index="2"]
+position = Vector2( -1.2, -1.2 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )

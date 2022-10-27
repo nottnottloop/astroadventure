@@ -14,13 +14,19 @@ health = 80
 attack_damage = 100
 invincible = true
 
-[node name="Sprite" parent="Body" index="0"]
-scale = Vector2( 0.134, 0.134 )
-texture = ExtResource( 2 )
+[node name="Body" parent="." index="0"]
+collision_layer = 0
+
+[node name="Hitbox" parent="Body" index="0"]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Hitbox" index="0"]
 position = Vector2( -1.5, -0.5 )
 shape = SubResource( 1 )
+
+[node name="Sprite" parent="Body" index="1"]
+scale = Vector2( 0.134, 0.134 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body" index="2"]
 position = Vector2( -1.5, -0.5 )

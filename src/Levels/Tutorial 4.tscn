@@ -64,6 +64,7 @@ texture = ExtResource( 4 )
 
 [node name="Giant Spike Wall" parent="." instance=ExtResource( 7 )]
 position = Vector2( -623, -2159 )
+z_index = 20
 
 [node name="Position2D" type="Position2D" parent="Giant Spike Wall/Waypoints" index="0"]
 

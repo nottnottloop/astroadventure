@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Music/training.mp3" type="AudioStream" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://src/Autoload/Music.gd\"
+
+"
+
+[node name="Training Music" type="AudioStreamPlayer"]
+pause_mode = 2
+stream = ExtResource( 1 )
+script = SubResource( 1 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/drugs.mp3-65b70b3f86f680c15c30fed883b91a33.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/drugs.mp3"
+dest_files=[ "res://.import/drugs.mp3-65b70b3f86f680c15c30fed883b91a33.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

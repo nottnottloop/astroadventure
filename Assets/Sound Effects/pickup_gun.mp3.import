@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pickup_gun.mp3-99867d04c3d907fed8d2e0b3de058bcb.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/pickup_gun.mp3"
+dest_files=[ "res://.import/pickup_gun.mp3-99867d04c3d907fed8d2e0b3de058bcb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
