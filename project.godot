@@ -29,6 +29,7 @@ _global_script_class_icons={
 config/name="Astro Adventure"
 run/main_scene="res://src/Levels/Main Menu.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://Assets/Crystals/Crystal_03icon.ico"
 
 [autoload]
 
