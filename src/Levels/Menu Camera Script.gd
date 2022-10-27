@@ -30,7 +30,7 @@ var ascend = false
 var ascend_skipped = false
 var title_play = false
 
-#camera final position 344, -4574.457
+#camera final position 344, -4588.557
 
 func _ready():
 	menu_canvas.visible = false
@@ -45,9 +45,12 @@ func _ready():
 #	opening.seek(24.5)
 
 func _physics_process(delta):
+	print(text_index)
 	text_timer += delta
 	if text_timer >= TEXT_INTERVAL and !ascend and !title_play:
 		text_index += 1
+		if text_index > 5:
+			text_index = 0
 		text[text_index-1].visible = false
 		text[text_index].visible = true
 		text_timer = 0
@@ -63,11 +66,11 @@ func _physics_process(delta):
 		if title_timer >= LENGTH_OF_TITLE:
 			reset()
 			get_tree().reload_current_scene()
-	if Input.is_action_just_pressed("ui_cancel") and not ascend_skipped:
+	if Input.is_action_just_pressed("ui_cancel") and not ascend_skipped and not title_play:
 		ascend = false
 		ascend_skipped = true
 		title_play()
-		self.position.y = -4574.457
+		self.position.y = -4588.557
 	if ascend and not ascend_skipped:
 		self.position += Vector2.UP * 7.05
 #	if Input.is_action_pressed("ui_up"):
@@ -85,10 +88,10 @@ func reset():
 	ascend_skipped = false
 	
 func title_play():
-		opening.playing = false
-		title.playing = true
-		title_play = true
-		menu_canvas.visible = true
+	opening.playing = false
+	title.playing = true
+	title_play = true
+	menu_canvas.visible = true
 		
 func start():
 	title.stop()

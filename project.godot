@@ -28,6 +28,7 @@ _global_script_class_icons={
 
 config/name="Astro Adventure"
 run/main_scene="res://src/Levels/Main Menu.tscn"
+boot_splash/image="res://Assets/splash.png"
 config/icon="res://icon.png"
 config/windows_native_icon="res://Assets/Crystals/Crystal_03icon.ico"
 
@@ -41,6 +42,7 @@ window/size/width=1920
 window/size/height=1080
 window/size/borderless=true
 window/size/fullscreen=true
+window/stretch/mode="2d"
 
 [global]
 
